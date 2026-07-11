@@ -1,0 +1,967 @@
+/* ================================================================
+   PERSONAL PORTFOLIO — style.css
+   
+   Design tokens, then component styles in page order:
+   1. Reset & base
+   2. Tokens (colors, type, space)
+   3. Utility
+   4. Header
+   5. Hero (two-column)
+   6. Stats row
+   7. Credentials row
+   8. Projects section
+   9. Footer
+   10. Responsive
+================================================================ */
+
+
+/* ================================================================
+   1. RESET & BASE
+================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  /* Soft radial gradient: slightly richer blue at center-top, fading to a cooler edge */
+  background-color: var(--page);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, #D6EEF5 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, #DDE8ED 0%, transparent 60%);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ================================================================
+   2. DESIGN TOKENS
+================================================================ */
+:root {
+  /* --- Palette --- */
+  --page:        #EAF5F8;   /* light sky-blue page background */
+  --card:        #F6EEDC;   /* warm cream cards */
+  --card-soft:   #FBF6EA;   /* softer cream — hover / inner surfaces */
+  --border:      #D9CBB4;   /* muted warm border */
+  --border-blue: #C4D8E0;   /* muted blue-gray border for page-level dividers */
+
+  --text:        #263238;   /* dark slate / charcoal primary text */
+  --muted:       #5E7380;   /* muted blue-gray secondary text */
+  --muted-light: #8AA0AA;   /* very muted — placeholders, labels */
+
+  --sage:        #6B9E82;   /* sage green — tags, focus rings, subtle accents */
+  --sage-pale:   #E8F3EC;   /* pale sage — tag backgrounds */
+  --sage-dark:   #4E7D64;   /* deeper sage — hover on sage-colored elements */
+
+  --clay:        #C7653E;   /* warm clay / orange — primary buttons, badges */
+  --clay-dark:   #A84F2F;   /* darker clay — button hover */
+  --clay-pale:   #F4DFD3;   /* pale clay — outreach tag bg */
+
+  --sky:         #8FBFD0;   /* muted sky blue — secondary accent, research tags */
+  --sky-pale:    #DDEFF5;   /* pale sky — research/software tag backgrounds */
+  --sky-dark:    #5A96AE;   /* deeper sky — hover text on sky elements */
+
+  /* --- Typography --- */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+
+  /* --- Space scale --- */
+  --s1:  4px;
+  --s2:  8px;
+  --s3:  12px;
+  --s4:  16px;
+  --s5:  24px;
+  --s6:  32px;
+  --s7:  48px;
+  --s8:  64px;
+  --s9:  96px;
+
+  /* --- Layout --- */
+  --max-width:    1120px;
+  --page-gutter:  clamp(16px, 4vw, 48px);
+
+  /* --- Shape --- */
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  /* --- Shadow (warm-tinted — avoids cold blue shadows on cream cards) --- */
+  --shadow-sm:  0 1px 4px rgba(38, 50, 56, 0.06);
+  --shadow-md:  0 4px 18px rgba(38, 50, 56, 0.09);
+  --shadow-lg:  0 8px 36px rgba(38, 50, 56, 0.12);
+  --shadow-warm: 0 4px 20px rgba(199, 101, 62, 0.10); /* clay-tinted for card hover */
+
+  /* --- Transition --- */
+  --ease: 0.22s ease;
+}
+
+
+/* ================================================================
+   3. UTILITY
+================================================================ */
+
+/* Visually hidden but accessible to screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Shared image placeholder block */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-placeholder-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Base tag style */
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--sage-pale);
+  color: var(--sage);
+}
+
+/* Category-specific tag colors */
+.tag--robotics   { background: var(--sage-pale);  color: var(--sage); }
+.tag--research   { background: var(--sky-pale);   color: var(--sky-dark); }
+.tag--biomedical { background: #EDE8F5;            color: #7B63AA; }
+.tag--mechanical { background: #FDF0E6;            color: #B5662A; }
+.tag--software   { background: var(--sky-pale);   color: var(--sky-dark); }
+.tag--outreach   { background: var(--clay-pale);  color: var(--clay); }
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--ease), color var(--ease), border-color var(--ease),
+              transform var(--ease), box-shadow var(--ease);
+  text-decoration: none;
+}
+
+/* Primary: warm clay/orange */
+.btn-primary {
+  background: var(--clay);
+  color: #fff;
+  border-color: var(--clay);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--clay-dark);
+  border-color: var(--clay-dark);
+  box-shadow: 0 4px 14px rgba(199, 101, 62, 0.28);
+  transform: translateY(-1px);
+}
+
+/* Outline: cream border, hovers to card-soft with sage text */
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--card-soft);
+  border-color: var(--sage);
+  color: var(--sage-dark);
+  transform: translateY(-1px);
+}
+
+/* Accessibility focus ring */
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* ================================================================
+   4. SITE HEADER
+================================================================ */
+
+/* Frosted header — picks up the page's blue, not cream */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(234, 245, 248, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-blue);
+  padding: var(--s3) var(--page-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s5);
+}
+
+.header-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.header-nav {
+  display: flex;
+  gap: var(--s5);
+  flex-wrap: wrap;
+}
+
+.header-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--ease);
+}
+
+.header-nav a:hover {
+  color: var(--sage);
+}
+
+
+/* ================================================================
+   5. HERO — two-column layout
+================================================================ */
+
+.hero {
+  padding: var(--s7) var(--page-gutter) var(--s6);
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--s6);
+  align-items: start;
+}
+
+/* --- Profile Card (left) — warmer than the blue page --- */
+.profile-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--s6) var(--s5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--s3);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 68px;
+}
+
+/* Circular profile photo placeholder */
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--border);
+  border: 3px solid var(--card-soft);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+  margin-bottom: var(--s2);
+}
+
+.profile-photo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.profile-subtitle {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--sage);
+  letter-spacing: 0.04em;
+}
+
+.profile-bio {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: var(--s2);
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  justify-content: center;
+  margin-top: var(--s3);
+}
+
+
+/* --- Featured Projects (right) --- */
+.featured-projects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.section-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-light);
+  margin-bottom: var(--s1);
+}
+
+.featured-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+/* Large card on top, pair of smaller cards below */
+.featured-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s4);
+}
+
+/* Shared featured card styles — cream on blue background */
+.featured-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--ease), transform var(--ease), border-color var(--ease), background var(--ease);
+}
+
+.featured-card:hover {
+  box-shadow: var(--shadow-warm);
+  transform: scale(1.01);
+  border-color: var(--sage);
+  background: var(--card-soft);
+}
+
+/* Large card has a taller image */
+.featured-card--large .fcard-img-wrap {
+  height:240px;
+  overflow: hidden;
+}
+
+.fcard-img-wrap {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+}
+.fcard2-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 20%;
+  object-position: center 10%;
+  height: 140px;
+  overflow: hidden;
+}
+.fcard-img-wrap .img-placeholder {
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover .fcard-img-wrap .img-placeholder {
+  transform: scale(1.01);
+}
+
+/* "Featured" badge — clay/orange */
+.fcard-badge {
+  position: absolute;
+  top: var(--s3);
+  left: var(--s3);
+  background: var(--clay);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.fcard-body {
+  padding: var(--s4) var(--s4) var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  flex: 1;
+}
+
+.fcard-tags {
+  display: flex;
+  gap: var(--s1);
+  flex-wrap: wrap;
+}
+
+.fcard-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.fcard-desc {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.fcard-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sage);
+  margin-top: var(--s1);
+  display: inline-block;
+  transition: color var(--ease);
+}
+
+.fcard-link:hover {
+  color: var(--clay);
+}
+
+
+/* ================================================================
+   6. STATS ROW
+   Signature element: colored left-border tape-strip cards that
+   reveal a "See →" hint on hover — feel clickable and personal.
+================================================================ */
+
+.stats-section {
+  /* Very slightly darker blue-tinted band to separate from page */
+  background: rgba(195, 224, 234, 0.30);
+  border-top: 1px solid var(--border-blue);
+  border-bottom: 1px solid var(--border-blue);
+  padding: var(--s5) var(--page-gutter);
+}
+
+.stats-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--s4);
+}
+
+/* Each stat is a full anchor — looks like a card, acts like a link */
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  /* Left accent border cycles through palette colors below */
+  border-left: 4px solid var(--sage);
+  border-radius: var(--radius-md);
+  padding: var(--s4) var(--s4) var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow var(--ease), transform var(--ease),
+              border-left-color var(--ease), background var(--ease);
+  position: relative;
+}
+
+/* Cycle the left accent color to feel hand-curated */
+.stat-card:nth-child(1) { border-left-color: var(--sage); }
+.stat-card:nth-child(2) { border-left-color: var(--sky); }
+.stat-card:nth-child(3) { border-left-color: #9B7EC8; }  /* soft lavender */
+.stat-card:nth-child(4) { border-left-color: var(--clay); }
+.stat-card:nth-child(5) { border-left-color: #C09030; }  /* warm amber */
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  background: var(--card-soft);
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* "See →" micro-label fades in on hover */
+.stat-hint {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--sage);
+  margin-top: var(--s2);
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity var(--ease), transform var(--ease);
+}
+
+.stat-card:hover .stat-hint,
+.stat-card:focus-visible .stat-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ================================================================
+   7. CREDENTIALS SECTION
+   Compact four-column row — always visible, never hidden
+================================================================ */
+
+.credentials {
+  padding: var(--s7) var(--page-gutter);
+}
+
+.credentials-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s6);
+  align-items: start;
+}
+
+.cred-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: var(--s3);
+  padding-bottom: var(--s2);
+  border-bottom: 1.5px solid var(--border);
+}
+
+.cred-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.cred-list li {
+  display: flex;
+  gap: var(--s2);
+  align-items: baseline;
+  font-size: 0.83rem;
+}
+
+/* Small year badge using sage accent */
+.cred-year {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--sage);
+  background: var(--sage-pale);
+  padding: 1px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cred-text {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cred-link {
+  color: var(--muted);
+  line-height: 1.5;
+  transition: color var(--ease);
+}
+
+.cred-link:hover {
+  color: var(--sage-dark);
+}
+
+/* Skills area */
+.skills-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.skill-group-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted-light);
+  margin-bottom: var(--s2);
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+
+/* Skill chips: cream on blue-page background — warmer than surroundings */
+.chip {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text);
+  transition: background var(--ease), border-color var(--ease), color var(--ease);
+  cursor: default;
+}
+
+.chip:hover {
+  background: var(--sage-pale);
+  border-color: var(--sage);
+  color: var(--sage-dark);
+}
+
+/* Contact list in credentials */
+.contact-list li {
+  font-size: 0.85rem;
+}
+
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  transition: color var(--ease);
+}
+
+.contact-list a:hover {
+  color: var(--sage-dark);
+}
+
+
+/* ================================================================
+   8. PROJECTS SECTION
+================================================================ */
+
+/* Slightly different background from page — warm tint to feel grounded */
+.projects-section {
+  background: rgba(246, 238, 220, 0.35);
+  border-top: 1px solid var(--border-blue);
+  padding: var(--s7) var(--page-gutter) var(--s9);
+}
+
+/* Header row: title + filter dropdown side by side */
+.projects-header {
+  max-width: var(--max-width);
+  margin: 0 auto var(--s6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+/* Filter dropdown */
+.filter-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.filter-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.filter-select {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 32px 7px 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235E7380' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--sage);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sage-pale);
+}
+
+/* Responsive project grid */
+.projects-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--s5);
+}
+
+/* Individual project card — cream on the warm-tinted section bg */
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--ease), transform var(--ease),
+              border-color var(--ease), background var(--ease);
+  cursor: pointer;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  box-shadow: var(--shadow-warm);
+  transform: translateY(-4px);
+  border-color: var(--sage);
+  background: var(--card-soft);
+  outline: none;
+}
+
+.pcard-img-wrap {
+  height: 160px;
+  overflow: hidden;
+}
+
+.pcard-img-wrap .img-placeholder {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .pcard-img-wrap .img-placeholder {
+  transform: scale(1.04);
+}
+
+.pcard-body {
+  padding: var(--s4) var(--s4) var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  flex: 1;
+}
+
+.pcard-tags {
+  display: flex;
+  gap: var(--s1);
+  flex-wrap: wrap;
+}
+
+.pcard-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.pcard-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.pcard-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sage);
+  display: inline-block;
+  margin-top: var(--s1);
+  transition: color var(--ease);
+}
+
+.pcard-link:hover {
+  color: var(--clay);
+}
+
+/* Empty state message */
+.projects-empty {
+  max-width: var(--max-width);
+  margin: var(--s6) auto 0;
+  text-align: center;
+  color: var(--muted-light);
+  font-size: 0.9rem;
+}
+
+
+/* ================================================================
+   9. SITE FOOTER
+================================================================ */
+
+.site-footer {
+  text-align: center;
+  padding: var(--s5) var(--page-gutter);
+  border-top: 1px solid var(--border-blue);
+  font-size: 0.8rem;
+  color: var(--muted-light);
+  background: rgba(195, 224, 234, 0.20);
+}
+
+
+/* ================================================================
+   10. RESPONSIVE BREAKPOINTS
+================================================================ */
+
+/* --- Tablet: ≤ 900px --- */
+@media (max-width: 900px) {
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    position: static;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .stats-inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .credentials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s5);
+  }
+}
+
+/* --- Mobile: ≤ 600px --- */
+@media (max-width: 600px) {
+
+  .hero {
+    padding: var(--s5) var(--page-gutter) var(--s5);
+  }
+
+  .featured-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-nav {
+    gap: var(--s4);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* --- Small mobile: ≤ 400px --- */
+@media (max-width: 400px) {
+  .stats-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profile-actions {
+    gap: var(--s1);
+  }
+
+  .btn {
+    font-size: 0.78rem;
+    padding: 7px 13px;
+  }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

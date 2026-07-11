@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethan's Portfolio</title>
+  <meta name="description" content="Ethan Zhou's personal portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SITE HEADER — minimal nav strip
+  ============================================================ -->
+  <header class="site-header">
+    <span class="header-name">Ethan Zhou</span>
+    <nav class="header-nav" aria-label="Page sections">
+      <a href="#projects">Projects</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact-row">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO — two-column: profile card (left) + featured projects (right)
+    ============================================================ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-inner">
+
+        <!-- LEFT: Profile Card -->
+        <aside class="profile-card" aria-label="Profile">
+
+          <!-- Circular photo placeholder -->
+          <div class="profile-photo" role="img" aria-label="Profile photo placeholder">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="40" cy="30" r="18" fill="#C8C0B4"/>
+              <ellipse cx="40" cy="68" rx="26" ry="18" fill="#C8C0B4"/>
+            </svg>
+          </div>
+
+          <!-- Name & subtitle -->
+          <h1 class="profile-name">Ethan Zhou</h1>
+          <!--<p class="profile-subtitle">Engineer · Researcher · Builder</p>-->
+
+          <!-- About paragraph -->
+          <p class="profile-bio">
+                 Hey! I'm an incoming freshman at the University of Pennsylvania super passionate about anything robotics, especially within the medical space. Previously, I've placed 2nd in the world in robotics and have conducted research with Johns Hopkins University. I'm always looking to build new projects and try new things, so please feel free to reach out!
+
+          </p>
+
+          <!-- Action buttons -->
+          <div class="profile-actions" id="contact-row">
+            <a href="https://drive.google.com/file/d/1UGFIzrJO-yFdmoAfzXMEZqvPG4AEAjJo/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-primary">Resume ↗</a>
+            <a href="mailto:ezhoumd@gmail.com" target="_blank" rel="noopener"class="btn btn-outline">Email</a>
+            <a href="https://www.linkedin.com/in/ezhoumd/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+            <a href="https://github.com/ezhoumd" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+          </div>
+
+        </aside>
+
+        <!-- RIGHT: Featured Projects -->
+        <section class="featured-projects" aria-labelledby="featured-heading">
+          <h2 class="section-eyebrow" id="featured-heading">Featured Projects</h2>
+
+          <div class="featured-grid">
+
+            <!-- Featured Card 1 -->
+            <article class="featured-card featured-card--large">
+              <div class="fcard-img-wrap">
+                <img src=images/DUGTRIO.png alt="Dugtrio"> 
+                <div class="img-placeholder" aria-label="Project image placeholder">
+                  <span class="img-placeholder-label">Image</span>
+                </div>
+                <span class="fcard-badge">Featured</span>
+              </div>
+              <div class="fcard-body">
+                <div class="fcard-tags">
+                  <span class="tag">Robotics</span>
+                  <span class="tag">Controls</span>
+                </div>
+                <h3 class="fcard-title">Dugtrio <strong>·</strong> 2025-2026</h3>
+                <p class="fcard-desc">World's only robot with three shooters on a turret. Designed for the 2025-26 FIRST Tech Challenge DECODE season. <strong>Placed 2nd in the world out of 8,000+ teams</strong>, first in the Chesapeake region. </p>
+                <a href="#" class="fcard-link">View project →</a>
+              </div>
+            </article>
+
+            <!-- Featured Cards 2 & 3 side-by-side -->
+            <div class="featured-pair">
+
+              <article class="featured-card">
+                <div class="fcard2-img-wrap">
+                  <img src="images/BLASTOISE_MTI.jpg" alt="Blastoise">
+                  <div class="img-placeholder" aria-label="Project image placeholder">
+                    <span class="img-placeholder-label">Image</span>
+                  </div>
+                  <span class="fcard-badge">Featured</span>
+                </div>
+                <div class="fcard-body">
+                  <div class="fcard-tags">
+                    <span class="tag">Robotics</span>
+                    <span class="tag">Controls</span>
+                  </div>
+                  <h3 class="fcard-title">Blastoise <strong>·</strong> 2024-2025</h3>
+                  <p class="fcard-desc">Robot with telescoping arm and unique 2-stage hanging system designed for the FIRST Tech Challenge Into the Deep season. <strong>Peaked 7th Offensive Power Rating worldwide</strong>, 9/64th at World Championship. </p>
+                  <a href="#" class="fcard-link">View project →</a>
+                </div>
+              </article>
+
+              <article class="featured-card">
+                <div class="fcard-img-wrap">
+                  <div class="img-placeholder" aria-label="Project image placeholder">
+                    <span class="img-placeholder-label">Image</span>
+                  </div>
+                  <span class="fcard-badge">Featured</span>
+                </div>
+                <div class="fcard-body">
+                  <div class="fcard-tags">
+                    <span class="tag">Biomedical</span>
+                  </div>
+                  <h3 class="fcard-title">Featured Project Three</h3>
+                  <p class="fcard-desc">Short description of the project and its key outcome.</p>
+                  <a href="#" class="fcard-link">View project →</a>
+                </div>
+              </article>
+
+            </div><!-- /featured-pair -->
+          </div><!-- /featured-grid -->
+        </section>
+
+      </div><!-- /hero-inner -->
+    </section>
+
+    <!-- ============================================================
+         STATS ROW — five achievement cards in a horizontal strip
+    ============================================================ 
+    <section class="stats-section" aria-label="Highlights">
+      <div class="stats-inner">
+
+        <a href="#" class="stat-card" aria-label="Achievement One — click to see related project">
+          <span class="stat-value">Achievement</span>
+          <span class="stat-label">One</span>
+          <span class="stat-hint">See project →</span>
+        </a>
+
+        <a href="#" class="stat-card" aria-label="Achievement Two — click to see related project">
+          <span class="stat-value">Achievement</span>
+          <span class="stat-label">Two</span>
+          <span class="stat-hint">See project →</span>
+        </a>
+
+        <a href="#" class="stat-card" aria-label="Achievement Three — click to see related project">
+          <span class="stat-value">Achievement</span>
+          <span class="stat-label">Three</span>
+          <span class="stat-hint">See publication →</span>
+        </a>
+
+        <a href="#" class="stat-card" aria-label="Achievement Four — click to see related project">
+          <span class="stat-value">Achievement</span>
+          <span class="stat-label">Four</span>
+          <span class="stat-hint">See award →</span>
+        </a>
+
+        <a href="#" class="stat-card" aria-label="Achievement Five — click to see related project">
+          <span class="stat-value">Achievement</span>
+          <span class="stat-label">Five</span>
+          <span class="stat-hint">See project →</span>
+        </a>
+
+      </div>
+    </section>
+-->
+    <!-- ============================================================
+         CREDENTIALS — awards / publications / skills / contact
+         in a compact four-column row
+    ============================================================ -->
+    <section class="credentials" id="credentials" aria-labelledby="credentials-heading">
+      <h2 class="visually-hidden" id="credentials-heading">Credentials</h2>
+
+      <div class="credentials-grid">
+
+        <!-- Awards -->
+        <div class="cred-block">
+          <h3 class="cred-heading">Awards</h3>
+          <ul class="cred-list">
+            <li>
+              <span class="cred-year">2026</span>
+              <span class="cred-text">FTC Worlds Division Inspire Award</span>
+            </li>
+            <li>
+              <span class="cred-year">2023-25</span>
+              <span class="cred-text">3x FTC Worlds Innovate Award </span>
+            </li>
+            <li>
+              <span class="cred-year">20XX</span>
+              <span class="cred-text">Award Three — Issuing Organization</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Publications -->
+        <div class="cred-block">
+          <h3 class="cred-heading">Publications</h3>
+          <ul class="cred-list">
+            <li>
+              <span class="cred-year">20XX</span>
+              <a href="#" class="cred-link">Publication Title One. <em>Journal or Conference Name.</em></a>
+            </li>
+            <li>
+              <span class="cred-year">20XX</span>
+              <a href="#" class="cred-link">Publication Title Two. <em>Journal or Conference Name.</em></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skills -->
+        <div class="cred-block">
+          <h3 class="cred-heading">Skills</h3>
+          <div class="skills-area">
+            <div class="skill-group">
+              <span class="skill-group-label">Engineering</span>
+              <div class="skill-chips">
+                <span class="chip">Skill A</span>
+                <span class="chip">Skill B</span>
+                <span class="chip">Skill C</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <span class="skill-group-label">Software</span>
+              <div class="skill-chips">
+                <span class="chip">Skill D</span>
+                <span class="chip">Skill E</span>
+                <span class="chip">Skill F</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="cred-block">
+          <h3 class="cred-heading">Contact</h3>
+          <ul class="cred-list contact-list">
+            <li><a href="mailto:you@example.com" class="cred-link">📧 you@example.com</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="cred-link">🔗 LinkedIn</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener" class="cred-link">🐙 GitHub</a></li>
+            <li><a href="#" class="cred-link">📄 Resume / CV</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS SECTION — filterable grid of all projects
+    ============================================================ -->
+    <section class="projects-section" id="projects" aria-labelledby="projects-heading">
+      <div class="projects-header">
+        <h2 class="section-title" id="projects-heading">Projects</h2>
+
+        <!-- Filter dropdown -->
+        <div class="filter-wrap">
+          <label for="project-filter" class="filter-label">Filter by</label>
+          <select id="project-filter" class="filter-select" aria-label="Filter projects by category">
+            <option value="all">All</option>
+            <option value="robotics">Robotics</option>
+            <option value="research">Research</option>
+            <option value="biomedical">Biomedical</option>
+            <option value="mechanical">Mechanical Design</option>
+            <option value="software">Software</option>
+            <option value="outreach">Outreach</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Project card grid -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project Card 1 -->
+        <article class="project-card" data-category="robotics" tabindex="0">
+          <div class="pcard-img-wrap">
+            <div class="img-placeholder" aria-label="Project image">
+              <span class="img-placeholder-label">Image</span>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag tag--robotics">Robotics</span>
+            </div>
+            <h3 class="pcard-title">Featured Project One</h3>
+            <p class="pcard-desc">Short description of the project, its goals, and what you built or discovered.</p>
+            <a href="#" class="pcard-link">View →</a>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="project-card" data-category="research" tabindex="0">
+          <div class="pcard-img-wrap">
+            <div class="img-placeholder" aria-label="Project image">
+              <span class="img-placeholder-label">Image</span>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag tag--research">Research</span>
+            </div>
+            <h3 class="pcard-title">Featured Project Two</h3>
+            <p class="pcard-desc">Short description of the project, its goals, and what you built or discovered.</p>
+            <a href="#" class="pcard-link">View →</a>
+          </div>
+        </article>
+
+        <!-- Project Card 3 -->
+        <article class="project-card" data-category="biomedical" tabindex="0">
+          <div class="pcard-img-wrap">
+            <div class="img-placeholder" aria-label="Project image">
+              <span class="img-placeholder-label">Image</span>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag tag--biomedical">Biomedical</span>
+            </div>
+            <h3 class="pcard-title">Featured Project Three</h3>
+            <p class="pcard-desc">Short description of the project, its goals, and what you built or discovered.</p>
+            <a href="#" class="pcard-link">View →</a>
+          </div>
+        </article>
+
+        <!-- Project Card 4 -->
+        <article class="project-card" data-category="mechanical" tabindex="0">
+          <div class="pcard-img-wrap">
+            <div class="img-placeholder" aria-label="Project image">
+              <span class="img-placeholder-label">Image</span>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag tag--mechanical">Mechanical Design</span>
+            </div>
+            <h3 class="pcard-title">Project Four</h3>
+            <p class="pcard-desc">Short description of the project, its goals, and what you built or discovered.</p>
+            <a href="#" class="pcard-link">View →</a>
+          </div>
+        </article>
+
+        <!-- Project Card 5 -->
+        <article class="project-card" data-category="software" tabindex="0">
+          <div class="pcard-img-wrap">
+            <div class="img-placeholder" aria-label="Project image">
+              <span class="img-placeholder-label">Image</span>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag tag--software">Software</span>
+            </div>
+            <h3 class="pcard-title">Project Five</h3>
+            <p class="pcard-desc">Short description of the project, its goals, and what you built or discovered.</p>
+            <a href="#" class="pcard-link">View →</a>
+          </div>
+        </article>
+
+        <!-- Project Card 6 -->
+        <article class="project-card" data-category="outreach" tabindex="0">
+          <div class="pcard-img-wrap">
+            <div class="img-placeholder" aria-label="Project image">
+              <span class="img-placeholder-label">Image</span>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag tag--outreach">Outreach</span>
+            </div>
+            <h3 class="pcard-title">Project Six</h3>
+            <p class="pcard-desc">Short description of the project, its goals, and what you built or discovered.</p>
+            <a href="#" class="pcard-link">View →</a>
+          </div>
+        </article>
+
+      </div><!-- /projects-grid -->
+
+      <!-- Empty state (shown when filter has no results) -->
+      <p class="projects-empty" id="projects-empty" hidden>No projects in this category yet.</p>
+
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       SITE FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Your Name &middot; Built with care</p>
+  </footer>
+
+  <!-- ============================================================
+       INLINE SCRIPT — project filter (no framework needed)
+  ============================================================ -->
+  <script>
+    // Auto-update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Project filter
+    const select = document.getElementById('project-filter');
+    const cards  = document.querySelectorAll('.project-card');
+    const empty  = document.getElementById('projects-empty');
+
+    select.addEventListener('change', () => {
+      const val = select.value;
+      let visible = 0;
+
+      cards.forEach(card => {
+        const matches = val === 'all' || card.dataset.category === val;
+        card.hidden = !matches;
+        if (matches) visible++;
+      });
+
+      empty.hidden = visible > 0;
+    });
+  </script>
+
+</body>
+</html>
