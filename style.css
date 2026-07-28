@@ -148,6 +148,21 @@ a {
   justify-content: center;
 }
 
+/* Real project images fill their fixed-height wrappers cleanly */
+.fcard-img-wrap img,
+.pcard-img-wrap img,
+.modal-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.featured-card:hover .fcard-img-wrap img,
+.project-card:hover .pcard-img-wrap img {
+  transform: scale(1.04);
+}
+
 .img-placeholder-label {
   font-size: 0.75rem;
   font-weight: 500;
@@ -398,10 +413,12 @@ a {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   transition: box-shadow var(--ease), transform var(--ease), border-color var(--ease), background var(--ease);
 }
 
-.featured-card:hover {
+.featured-card:hover,
+.featured-card:focus-visible {
   box-shadow: var(--shadow-warm);
   transform: scale(1.01);
   border-color: var(--sage);
@@ -419,14 +436,7 @@ a {
   height: 140px;
   overflow: hidden;
 }
-.fcard2-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 20%;
-  object-position: center 10%;
-  height: 140px;
-  overflow: hidden;
-}
+
 .fcard-img-wrap .img-placeholder {
   transition: transform 0.3s ease;
 }
@@ -604,6 +614,11 @@ a {
   border-bottom: 1.5px solid var(--border);
 }
 
+/* Second heading stacked inside one credentials column */
+.cred-heading--stacked {
+  margin-top: var(--s5);
+}
+
 .cred-list {
   display: flex;
   flex-direction: column;
@@ -642,6 +657,24 @@ a {
 
 .cred-link:hover {
   color: var(--sage-dark);
+}
+
+/* Publication entry that has a link pasted in — gets a subtle arrow cue */
+.pub-link {
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+  transition: color var(--ease), text-decoration-color var(--ease);
+}
+
+.pub-link:hover {
+  text-decoration-color: var(--sage);
+}
+
+.pub-arrow {
+  color: var(--sage);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* Skills area */
@@ -732,6 +765,13 @@ a {
   line-height: 1.15;
 }
 
+/* "Click any card for more detail." hint under the section title */
+.section-sub {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: var(--s1);
+}
+
 /* Filter dropdown */
 .filter-wrap {
   display: flex;
@@ -792,6 +832,12 @@ a {
   transition: box-shadow var(--ease), transform var(--ease),
               border-color var(--ease), background var(--ease);
   cursor: pointer;
+}
+
+/* The author `display: flex` above outranks the UA [hidden] rule,
+   so the filter needs this to actually hide filtered-out cards. */
+.project-card[hidden] {
+  display: none;
 }
 
 .project-card:hover,
@@ -868,6 +914,243 @@ a {
 
 
 /* ================================================================
+   8b. PROJECT DETAIL MODAL
+================================================================ */
+
+.project-modal {
+  /* The global `* { margin: 0 }` reset kills the UA's `margin: auto` on
+     <dialog>, which is what centers a modal — restore it explicitly. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(680px, calc(100vw - 2 * var(--s5)));
+  max-height: min(86vh, 820px);
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  color: var(--text);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.project-modal::backdrop {
+  background: rgba(38, 50, 56, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* Inner wrapper scrolls; the dialog itself stays put so backdrop
+   clicks (target === dialog) still register as "close" */
+.modal-inner {
+  position: relative;
+  max-height: inherit;
+  overflow-y: auto;
+}
+
+/* Absolute against the dialog (not .modal-inner) so it stays put while
+   the content scrolls underneath it */
+.modal-close {
+  position: absolute;
+  top: var(--s3);
+  right: var(--s3);
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text);
+  background: rgba(251, 246, 234, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease), border-color var(--ease);
+}
+
+.modal-close:hover {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: #fff;
+}
+
+.modal-media {
+  height: 260px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.modal-media[hidden] {
+  display: none;
+}
+
+.modal-body {
+  padding: var(--s5) var(--s5) var(--s6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.modal-tags {
+  display: flex;
+  gap: var(--s1);
+  flex-wrap: wrap;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.modal-meta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--sage);
+}
+
+.modal-meta[hidden] {
+  display: none;
+}
+
+.modal-summary {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Key metrics strip */
+.modal-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: var(--s2);
+  margin: var(--s3) 0 var(--s2);
+  padding: var(--s3);
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.modal-stats[hidden] {
+  display: none;
+}
+
+.mstat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: center;
+}
+
+.mstat-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.15;
+  color: var(--clay);
+}
+
+.mstat-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+/* In-depth sections */
+.modal-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  margin-top: var(--s4);
+}
+
+.modal-sections[hidden] {
+  display: none;
+}
+
+.modal-section-heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--sage-dark);
+  padding-bottom: var(--s2);
+  margin-bottom: var(--s3);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Pull quote */
+.modal-quote {
+  margin-top: var(--s5);
+  padding: var(--s4);
+  background: var(--sage-pale);
+  border-left: 3px solid var(--sage);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.modal-quote[hidden] {
+  display: none;
+}
+
+.modal-quote cite {
+  display: block;
+  margin-top: var(--s2);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--sage-dark);
+}
+
+.modal-points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  margin-top: var(--s1);
+}
+
+.modal-points[hidden] {
+  display: none;
+}
+
+/* Sage bullet dots, drawn manually so list-style stays off */
+.modal-points li {
+  position: relative;
+  padding-left: var(--s4);
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.modal-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+.modal-link {
+  align-self: flex-start;
+  margin-top: var(--s4);
+}
+
+.modal-link[hidden] {
+  display: none;
+}
+
+
+/* ================================================================
    9. SITE FOOTER
 ================================================================ */
 
@@ -939,6 +1222,18 @@ a {
   .projects-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .modal-media {
+    height: 190px;
+  }
+
+  .modal-title {
+    font-size: 1.35rem;
+  }
+
+  .modal-body {
+    padding: var(--s4) var(--s4) var(--s5);
   }
 }
 
