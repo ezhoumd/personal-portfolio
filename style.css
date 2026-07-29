@@ -988,6 +988,12 @@ a {
   flex-wrap: wrap;
 }
 
+.pcard-year {
+  font-weight: 400;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 .pcard-title {
   font-family: var(--font-display);
   font-size: 1.05rem;

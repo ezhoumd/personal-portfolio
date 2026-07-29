@@ -16,7 +16,7 @@ const path = require('path');
 const PROJECTS = require('./projects.js');
 
 const SITE = 'Ethan Zhou';
-const CSS_VERSION = 21;
+const CSS_VERSION = 22;
 
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -110,7 +110,7 @@ function page(p) {
         </div>
 
         <h1 class="project-title">${esc(p.title)}</h1>
-        ${p.meta ? `<p class="modal-meta">${esc(p.meta)}</p>` : ''}
+        ${(p.year || p.meta) ? `<p class="modal-meta">${[p.year, p.meta].filter(Boolean).map(esc).join(' &middot; ')}</p>` : ''}
         <p class="modal-summary">${esc(p.summary)}</p>
 ${stats}${points}${sections}${quote}${linkRow}
       </div>

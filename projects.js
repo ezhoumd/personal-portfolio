@@ -18,7 +18,8 @@ const PROJECTS = [
     id: 'dugtrio',
     blurb: "The world's only robot with three shooters on a turret — three independent flywheels fire at once instead of bottlenecking on sorting.",
     title: 'Dugtrio',
-    meta: '2025–2026 · FTC DECODE · Team 6417 Blu Cru',
+    year: '2025–26',
+    meta: 'FTC DECODE · Team 6417 Blu Cru',
     cats: ['mechatronics', 'controls', 'mechanical'],
     tags: [['Mechatronics','mechatronics'], ['Controls','controls']],
     img: 'images/DUGTRIO.png',
@@ -91,7 +92,8 @@ const PROJECTS = [
     id: 'blastoise',
     blurb: 'All-in-one robot that intakes and scores with a single 34-inch telescoping arm, eliminating the transfer mechanism entirely.',
     title: 'Blastoise',
-    meta: '2024–2025 · FTC Into the Deep · Team 6417 Blu Cru',
+    year: '2024–25',
+    meta: 'FTC Into the Deep · Team 6417 Blu Cru',
     cats: ['mechatronics', 'controls', 'mechanical'],
     tags: [['Mechatronics','mechatronics'], ['Controls','controls']],
     img: 'images/BLASTOISE_MTI.jpg',
@@ -164,6 +166,7 @@ const PROJECTS = [
   {
     id: 'recycla',
     title: 'Recycla',
+    year: '2024–25',
     meta: 'Personal project',
     cats: ['mechatronics', 'mechanical', 'manufacturing'],
     tags: [['Mechatronics','mechatronics'], ['Manufacturing','manufacturing']],
@@ -180,6 +183,7 @@ const PROJECTS = [
   {
     id: 'diffy-pto',
     title: 'Differential Power Takeoff',
+    year: '2024',
     meta: 'Mechanism design',
     cats: ['mechanical'],
     tags: [['Mechanical Design','mechanical']],
@@ -193,6 +197,7 @@ const PROJECTS = [
   {
     id: 'linear-odo',
     title: 'Linear Odometry',
+    year: '2023–24',
     meta: 'Robot localization',
     cats: ['mechatronics', 'controls'],
     tags: [['Controls','controls'], ['Mechatronics','mechatronics']],
@@ -206,6 +211,7 @@ const PROJECTS = [
   {
     id: 'cycloidal',
     title: 'Cycloidal Gearbox',
+    year: '2026',
     meta: 'Mechanism design',
     cats: ['mechanical', 'manufacturing'],
     tags: [['Mechanical Design','mechanical'], ['Manufacturing','manufacturing']],
@@ -233,8 +239,9 @@ const PROJECTS = [
   --- end bambu --- */
   {
     id: 'nostopharma',
-    title: 'Automated Pipetting Platform',
-    meta: 'Jan 2026–Present · Nostopharma',
+    title: 'Pipsqueak',
+    year: '2026',
+    meta: 'Nostopharma',
     cats: ['mechatronics', 'product', 'research'],
     tags: [['Mechatronics','mechatronics'], ['Product','product']],
     img: '',
@@ -250,7 +257,8 @@ const PROJECTS = [
   {
     id: 'jhu',
     title: 'Nanoparticle Drug Delivery',
-    meta: 'Summer–Fall 2025 · Johns Hopkins School of Medicine',
+    year: '2025',
+    meta: 'Johns Hopkins School of Medicine',
     cats: ['research'],
     tags: [['Research','research']],
     img: '',
@@ -268,7 +276,8 @@ const PROJECTS = [
   {
     id: 'geneimmune',
     title: 'Influenza Protein Purification',
-    meta: 'Summer 2024 · GeneImmune Biotechnology LLC',
+    year: '2024',
+    meta: 'GeneImmune Biotechnology LLC',
     cats: ['research'],
     tags: [['Research','research']],
     img: '',
@@ -301,7 +310,8 @@ const PROJECTS = [
     id: 'minime',
     blurb: 'A robotics kit that costs 60 cents to make, designed as the lowest-barrier first step into STEM for kids aged 4–10.',
     title: 'MiniMe',
-    meta: 'STEM outreach · Rockville Science Center',
+    year: '2025',
+    meta: 'Rockville Science Center · STEM outreach',
     cats: ['product', 'manufacturing', 'misc'],
     tags: [['Product','product'], ['Manufacturing','manufacturing']],
     img: '',
