@@ -16,7 +16,7 @@ const path = require('path');
 const PROJECTS = require('./projects.js');
 
 const SITE = 'Ethan Zhou';
-const CSS_VERSION = 23;
+const CSS_VERSION = 25;
 
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -32,12 +32,12 @@ function page(p) {
     `<span class="tag tag--${cls}">${esc(label)}</span>`).join('\n          ');
 
   const stats = (p.stats || []).length ? `
-        <div class="modal-stats">
-          ${p.stats.map(([v, l]) => `<div class="mstat">
-            <span class="mstat-value">${esc(v)}</span>
-            <span class="mstat-label">${esc(l)}</span>
-          </div>`).join('\n          ')}
-        </div>` : '';
+          <div class="side-stats">
+            ${p.stats.map(([v, l]) => `<div class="mstat">
+              <span class="mstat-value">${esc(v)}</span>
+              <span class="mstat-label">${esc(l)}</span>
+            </div>`).join('\n            ')}
+          </div>` : '';
 
   const points = (p.points || []).length ? `
         <ul class="modal-points">
@@ -68,7 +68,7 @@ function page(p) {
 
   const links = (p.links || []).filter(l => l.url && l.url.trim());
   const linkRow = links.length ? `
-        <div class="modal-links">
+          <div class="modal-links">
           ${links.map(l => `<a class="btn btn-primary" href="${esc(l.url.trim())}" target="_blank" rel="noopener">${esc(l.label)} &#8599;</a>`).join('\n          ')}
         </div>` : '';
 
@@ -76,6 +76,9 @@ function page(p) {
       <div class="project-hero-media">
         <img src="../${esc(p.img)}" alt="${esc(p.title)}">
       </div>` : '';
+
+  // Sidebar only exists when there is something to put in it
+  const hasSide = (p.stats || []).length || (p.links || []).some(l => l.url && l.url.trim());
 
   const desc = (p.blurb || p.summary || '').slice(0, 200);
 
@@ -116,14 +119,23 @@ function page(p) {
     <article class="project-article">${media}
 
       <div class="project-body">
-        <div class="modal-tags">
-          ${tags}
-        </div>
+        <div class="project-layout${hasSide ? '' : ' project-layout--single'}">
 
-        <h1 class="project-title">${esc(p.title)}</h1>
-        ${(p.year || p.meta) ? `<p class="modal-meta">${[p.year, p.meta].filter(Boolean).map(esc).join(' &middot; ')}</p>` : ''}
-        <p class="modal-summary">${esc(p.summary)}</p>
-${stats}${points}${sections}${gallery}${quote}${linkRow}
+          <div class="project-main">
+            <div class="modal-tags">
+              ${tags}
+            </div>
+
+            <h1 class="project-title">${esc(p.title)}</h1>
+            ${(p.year || p.meta) ? `<p class="modal-meta">${[p.year, p.meta].filter(Boolean).map(esc).join(' &middot; ')}</p>` : ''}
+            <p class="modal-summary">${esc(p.summary)}</p>
+${points}${sections}${quote}
+          </div>
+${hasSide ? `
+          <aside class="project-side">${stats}${linkRow}
+          </aside>` : ''}
+        </div>
+${gallery}
       </div>
     </article>
   </main>

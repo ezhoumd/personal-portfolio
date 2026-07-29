@@ -1277,9 +1277,9 @@ a {
 ================================================================ */
 
 .project-page {
-  max-width: 780px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--s6) var(--page-gutter) var(--s8);
+  padding: var(--s5) var(--page-gutter) var(--s8);
 }
 
 .project-back {
@@ -1303,8 +1303,9 @@ a {
   box-shadow: var(--shadow-md);
 }
 
+/* Big hero — the page is wide now, so the image should carry it */
 .project-hero-media {
-  height: 320px;
+  height: 460px;
   overflow: hidden;
   background: var(--border);
 }
@@ -1316,23 +1317,95 @@ a {
 }
 
 .project-body {
-  padding: var(--s6);
+  padding: var(--s6) var(--s7) var(--s7);
+}
+
+/* Write-up on the left, metrics and links on the right. The text column is
+   capped so lines stay readable even though the page fills the screen. */
+.project-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: var(--s7);
+  align-items: start;
+}
+
+/* Pages with no metrics or links have nothing to put in a sidebar, so the
+   write-up is centred rather than left-hugging a column of empty space. */
+.project-layout--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.project-main {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: var(--s2);
 }
 
+.project-main .modal-summary,
+.project-main .modal-points li {
+  max-width: 68ch;
+}
+
 .project-title {
   font-family: var(--font-display);
-  font-size: 2.1rem;
-  line-height: 1.15;
+  font-size: 2.4rem;
+  line-height: 1.12;
   color: var(--text);
 }
 
-/* The generated pages reuse the old modal type styles, but as a full page
-   the summary can afford to be a touch larger. */
 .project-body .modal-summary {
   font-size: 1rem;
+}
+
+/* Sidebar sticks while the long write-up scrolls past it */
+.project-side {
+  position: sticky;
+  top: 76px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.side-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  padding: var(--s4);
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.side-stats .mstat {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: var(--s2) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.side-stats .mstat:last-child {
+  border-bottom: 0;
+}
+
+.side-stats .mstat-value {
+  font-size: 1.5rem;
+}
+
+.side-stats .mstat-label {
+  font-size: 0.76rem;
+}
+
+.project-side .modal-links {
+  flex-direction: column;
+  margin-top: 0;
+}
+
+.project-side .modal-links .btn {
+  width: 100%;
 }
 
 /* Anchors used as cards shouldn't inherit link underlines */
@@ -1342,13 +1415,28 @@ a.featured-card {
   text-decoration: none;
 }
 
+@media (max-width: 900px) {
+  .project-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s5);
+  }
+
+  .project-side {
+    position: static;
+  }
+
+  .project-body {
+    padding: var(--s5);
+  }
+}
+
 @media (max-width: 600px) {
   .project-hero-media {
-    height: 200px;
+    height: 220px;
   }
 
   .project-title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   .project-body {
@@ -1359,12 +1447,14 @@ a.featured-card {
 
 /* Project page gallery — supporting shots, captioned */
 .project-gallery {
-  margin-top: var(--s5);
+  margin-top: var(--s7);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--border);
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--s4);
 }
 
@@ -1377,7 +1467,7 @@ a.featured-card {
 
 .gallery-item img {
   width: 100%;
-  height: 210px;
+  height: 300px;
   object-fit: cover;
   display: block;
 }
