@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blastoise &middot; Ethan Zhou</title>
+  <meta name="description" content="All-in-one robot that intakes and scores with a single 34-inch telescoping arm, eliminating the transfer mechanism entirely." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Blastoise &middot; Ethan Zhou" />
+  <meta property="og:description" content="All-in-one robot that intakes and scores with a single 34-inch telescoping arm, eliminating the transfer mechanism entirely." />
+  <meta property="og:image" content="../images/BLASTOISE_MTI.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B0522F'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F6EEDC' text-anchor='middle'%3EEZ%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css?v=21" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-name" href="../">Ethan Zhou</a>
+    <nav class="header-nav" aria-label="Page sections">
+      <a href="../#background">Background</a>
+      <a href="../#projects">Projects</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <a class="project-back" href="../#projects">&larr; All projects</a>
+
+    <article class="project-article">
+      <div class="project-hero-media">
+        <img src="../images/BLASTOISE_MTI.jpg" alt="Blastoise">
+      </div>
+
+      <div class="project-body">
+        <div class="modal-tags">
+          <span class="tag tag--mechatronics">Mechatronics</span>
+          <span class="tag tag--controls">Controls</span>
+        </div>
+
+        <h1 class="project-title">Blastoise</h1>
+        <p class="modal-meta">2024–2025 · FTC Into the Deep · Team 6417 Blu Cru</p>
+        <p class="modal-summary">An all-in-one robot that intakes and scores with a single telescoping arm, eliminating the need for a transfer mechanism entirely. Evolved from our States robot, Wartortle.</p>
+
+        <div class="modal-stats">
+          <div class="mstat">
+            <span class="mstat-value">7th</span>
+            <span class="mstat-label">Offensive Power Rating</span>
+          </div>
+          <div class="mstat">
+            <span class="mstat-value">34 in</span>
+            <span class="mstat-label">arm extension</span>
+          </div>
+          <div class="mstat">
+            <span class="mstat-value">6 sec</span>
+            <span class="mstat-label">sample cycles</span>
+          </div>
+          <div class="mstat">
+            <span class="mstat-value">L3</span>
+            <span class="mstat-label">hang</span>
+          </div>
+        </div>
+        <ul class="modal-points">
+          <li>Peaked at 7th Offensive Power Rating worldwide</li>
+          <li>Finished 9/64 at the World Championship</li>
+          <li>Placed 13th of 40 at the Multinational Tech Invitational</li>
+        </ul>
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Telescoping Arm</h2>
+          <ul class="modal-points">
+            <li>Three-stage telescoping tube system with 34 inches of extension</li>
+            <li>Cascade-strung with two sets of strings — the second is a backup that improves consistency</li>
+            <li>Custom bearing blocks constrain both the inside and outside of the tubes</li>
+            <li>Chain-and-sprocket pivot with a custom tensioner at a 152.7:1 ratio — 39 RPM, 205.2 kg·cm of torque</li>
+            <li>Pivot is over 80% custom; the arm is pocketed to reduce weight</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">End Effector</h2>
+          <ul class="modal-points">
+            <li>All-in-one intake/outtake removes the transfer mechanism entirely, embodying the KISS principle</li>
+            <li>Active/passive combination: a belt-driven spinner for fast intaking plus a sample-conforming latch for reliable scoring</li>
+            <li>Four degrees of freedom — pitch control for multiple scoring angles, rotating wrist for roll control from either side</li>
+            <li>Sample-aligning geometry and a limit switch detect and square up blocks</li>
+            <li>A scissor-linkage pusher (225 mm extension) was added after Qual 1 to reach vertical blocks at the submersible edge</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Two-Stage Hang</h2>
+          <ul class="modal-points">
+            <li>One-of-a-kind passively sprung two-stage hanger with magnetic hooks</li>
+            <li>Level 2 uses a sprung bungee cord for instant extension, bracing on the submersible to minimize required torque</li>
+            <li>Level 3 uses the extension's own speed to throw the magnetic hooks up, with a separate high-torque motor lifting the robot</li>
+            <li>A dual-purpose servo acts as both latch and high-torque retraction winch</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Drivetrain</h2>
+          <ul class="modal-points">
+            <li>Custom CNC-machined plates with motors embedded into the sides to save space</li>
+            <li>Motors lowered to drop center of mass, validated in Onshape center-of-mass simulation before building</li>
+            <li>Two dead-wheel odometry pods for localization</li>
+            <li>Polycarbonate covers and ramps stop samples falling into the robot</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Software</h2>
+          <ul class="modal-points">
+            <li>Affine transformation matrix inverse kinematics relate robot center to end-effector position</li>
+            <li>Cubic Hermite splines smoothly control end-effector pathing</li>
+            <li>Custom point-to-point PID pathing replaced Road Runner, which was slow and did not correct at the end of trajectories</li>
+            <li>AprilTag localization corrects odometry drift, using a linked list of past positions to extrapolate around reading latency</li>
+            <li>Voltage compensation normalizes motor power to 12V so behavior stays consistent as the battery drains</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <h2 class="footer-heading">Get in touch</h2>
+      <p class="footer-note">Always happy to talk robotics, research, or a new project.</p>
+      <div class="footer-links">
+        <a href="mailto:ezhoumd@gmail.com" class="btn btn-primary">ezhoumd@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ezhoumd/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/ezhoumd" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      </div>
+      <p class="footer-copy">&copy; <span id="year"></span> Ethan Zhou</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

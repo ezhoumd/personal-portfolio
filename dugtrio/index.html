@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dugtrio &middot; Ethan Zhou</title>
+  <meta name="description" content="The world's only robot with three shooters on a turret — three independent flywheels fire at once instead of bottlenecking on sorting." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Dugtrio &middot; Ethan Zhou" />
+  <meta property="og:description" content="The world's only robot with three shooters on a turret — three independent flywheels fire at once instead of bottlenecking on sorting." />
+  <meta property="og:image" content="../images/DUGTRIO.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B0522F'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F6EEDC' text-anchor='middle'%3EEZ%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css?v=21" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-name" href="../">Ethan Zhou</a>
+    <nav class="header-nav" aria-label="Page sections">
+      <a href="../#background">Background</a>
+      <a href="../#projects">Projects</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <a class="project-back" href="../#projects">&larr; All projects</a>
+
+    <article class="project-article">
+      <div class="project-hero-media">
+        <img src="../images/DUGTRIO.png" alt="Dugtrio">
+      </div>
+
+      <div class="project-body">
+        <div class="modal-tags">
+          <span class="tag tag--mechatronics">Mechatronics</span>
+          <span class="tag tag--controls">Controls</span>
+        </div>
+
+        <h1 class="project-title">Dugtrio</h1>
+        <p class="modal-meta">2025–2026 · FTC DECODE · Team 6417 Blu Cru</p>
+        <p class="modal-summary">The world's only robot with three shooters mounted on a turret. Where most teams shoot one ball at a time and bottleneck on sorting, Dugtrio fires three at once — or completes a motif deliberately — using three independent flywheels.</p>
+
+        <div class="modal-stats">
+          <div class="mstat">
+            <span class="mstat-value">2nd</span>
+            <span class="mstat-label">in the world</span>
+          </div>
+          <div class="mstat">
+            <span class="mstat-value">3</span>
+            <span class="mstat-label">independent flywheels</span>
+          </div>
+          <div class="mstat">
+            <span class="mstat-value">150+</span>
+            <span class="mstat-label">design iterations</span>
+          </div>
+          <div class="mstat">
+            <span class="mstat-value">90%</span>
+            <span class="mstat-label">more artifacts scored (V2)</span>
+          </div>
+        </div>
+        <ul class="modal-points">
+          <li>Placed 2nd out of 8,000+ teams globally and 1st in the US</li>
+          <li>1st in the Chesapeake region · FTC Worlds Inspire Award</li>
+          <li>Led mechanical design and fabrication across 150+ iterations</li>
+        </ul>
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Triple Flywheel Shooter</h2>
+          <ul class="modal-points">
+            <li>Three independent flywheels allow shooting from any distance — three shots at once, or meticulous motif completion</li>
+            <li>Steel flywheels add rotational inertia, preserving speed and increasing shot consistency</li>
+            <li>Independent flywheels increased accuracy by 40%</li>
+            <li>Linked hoods freed up servos for tilt, making the turret 70% faster</li>
+            <li>Custom &quot;rider bearings&quot; reduce friction; sprung wiring permits full 360° rotation</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Intake &amp; Transfer</h2>
+          <ul class="modal-points">
+            <li>Full-bot-width intake with an optimized ramp profile that removes dead zones — &quot;touch it, own it&quot;</li>
+            <li>Intake geometry forces artifacts to auto-align, giving the driver room for error</li>
+            <li>V2 went channel-less with custom molded mecanum rollers and Teflon: over 70% faster pickup</li>
+            <li>Countersprung elevator linkage balances gravity — V2 needs less than half the torque of V1</li>
+            <li>Surgical tubing acts as a one-way door; a virtual four-bar kicker keeps the transfer short enough to turret while moving</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Drivetrain &amp; Endgame</h2>
+          <ul class="modal-points">
+            <li>A 50 lb six-wheel drivetrain, chosen over mecanum through tradeoff analysis — getting pushed while shooting three artifacts was the key risk</li>
+            <li>Central traction wheels provide pushing power; omni-wheels keep turning smooth</li>
+            <li>Two-stage serpentine belt drive allows tighter packaging, with motors low to reduce center of mass</li>
+            <li>Endgame tilt uses a 1:8 gearbox to tilt the 50 lb robot, doubles as a parking brake, and overcenters to stay up even without power</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Software &amp; Controls</h2>
+          <ul class="modal-points">
+            <li>Auto-aim for both turret and shooter using linear interpolation</li>
+            <li>Custom AI ball detection enables driverless intaking</li>
+            <li>Custom Pure Pursuit pathing algorithm developed for the six-wheel drive</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-heading">Design Process</h2>
+          <ul class="modal-points">
+            <li>Requirements analysis drove every subsystem — each game observation mapped to a design consequence</li>
+            <li>Brainstorming sprints and 12+ prototypes in PLA, polycarbonate, and cardboard</li>
+            <li>Finite Element Analysis optimized pocketing to reduce deformation by 4x</li>
+            <li>Multibody modeling and master sketches in Onshape enabled fast top-down changes</li>
+            <li>Failure Mode and Effects Analysis after each competition; version control enabled experimentation</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <h2 class="footer-heading">Get in touch</h2>
+      <p class="footer-note">Always happy to talk robotics, research, or a new project.</p>
+      <div class="footer-links">
+        <a href="mailto:ezhoumd@gmail.com" class="btn btn-primary">ezhoumd@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ezhoumd/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/ezhoumd" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      </div>
+      <p class="footer-copy">&copy; <span id="year"></span> Ethan Zhou</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
