@@ -164,6 +164,30 @@ const PROJECTS = [
     ]
   },
   {
+    id: 'david',
+    blurb: 'FTC robot built around a 360°+ turret, coaxial belt-driven linear rails on a pivot, and a differential claw — 10 degrees of freedom in all.',
+    title: 'David',
+    year: '2023–24',
+    meta: 'FTC CENTERSTAGE · Team 6417 Blu Cru',
+    cats: ['mechatronics', 'controls', 'mechanical'],
+    tags: [['Mechatronics','mechatronics'], ['Controls','controls']],
+    img: '',
+    gallery: [
+      { src: 'images/DAVID_claw.jpg', caption: 'Differential claw and turret assembly in carbon fiber' },
+      { src: 'images/DAVID_hang.jpg', caption: 'Arm and claw extended on the field' }
+    ],
+    summary: 'A robot designed around reach and dexterity: a turret with over 360° of rotation, coaxial belt-driven linear rails mounted on a pivot, and a differential claw for grabbing game pieces.',
+    points: [
+      'Turret rotates beyond a full 360°',
+      'Coaxial belt-driven linear rails mounted on a pivot',
+      'Differential claw for grabbing game pieces',
+      '10 total degrees of freedom, 6 of them in the arm'
+    ],
+    links: [
+      { label: 'Files', url: '' }
+    ]
+  },
+  {
     id: 'recycla',
     title: 'Recycla',
     year: '2024–25',
@@ -238,7 +262,32 @@ const PROJECTS = [
   }
   --- end bambu --- */
   {
-    id: 'nostopharma',
+    id: 'spaghetti-bridge',
+    blurb: 'Spaghetti-and-epoxy truss bridge built to strict height and weight limits — carried the highest load of any entry that stayed in spec.',
+    title: 'Spaghetti Bridge',
+    year: '2024',
+    meta: 'Hopkins Engineering Innovation',
+    cats: ['mechanical'],
+    tags: [['Mechanical Design','mechanical']],
+    img: '',
+    gallery: [
+      { src: 'images/BRIDGE_build.jpg', caption: 'Laying up the truss with epoxy over a printed template' },
+      { src: 'images/BRIDGE_complete.jpg', caption: 'Finished span, arched top chord with triangulated webbing' },
+      { src: 'images/BRIDGE_test.jpg', caption: 'Load testing to failure with hanging buckets' }
+    ],
+    summary: 'A truss bridge built from spaghetti and epoxy under strict height and weight limits. It carried more load than any other entry that stayed within the constraints, placing 3rd overall.',
+    points: [
+      'Held the highest load of any bridge that met the height and weight requirements',
+      'Placed 3rd overall',
+      'Bundled spaghetti into triangular tube sections to raise bending stiffness across the span',
+      'Fully triangulated webbing keeps members in tension and compression rather than bending'
+    ],
+    links: [
+      { label: 'Files', url: '' }
+    ]
+  },
+  {
+    id: 'pipsqueak',
     title: 'Pipsqueak',
     year: '2026',
     meta: 'Nostopharma',

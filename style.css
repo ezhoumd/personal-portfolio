@@ -988,7 +988,9 @@ a {
   flex-wrap: wrap;
 }
 
-.pcard-year {
+/* Year reads the same on featured and grid cards: muted, so the title leads */
+.pcard-year,
+.fcard-year {
   font-weight: 400;
   color: var(--muted);
   white-space: nowrap;
@@ -1352,6 +1354,39 @@ a.featured-card {
   .project-body {
     padding: var(--s5) var(--s4);
   }
+}
+
+
+/* Project page gallery — supporting shots, captioned */
+.project-gallery {
+  margin-top: var(--s5);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--s4);
+}
+
+.gallery-item {
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item figcaption {
+  padding: var(--s2) var(--s3) var(--s3);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--muted);
 }
 
 
