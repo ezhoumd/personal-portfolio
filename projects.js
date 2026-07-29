@@ -266,14 +266,14 @@ const PROJECTS = [
     blurb: 'Spaghetti-and-epoxy truss bridge built to strict height and weight limits — carried the highest load of any entry that stayed in spec.',
     title: 'Spaghetti Bridge',
     year: '2024',
-    meta: 'Hopkins Engineering Innovation',
+    meta: 'Johns Hopkins Explore Engineering Innovation Program',
     cats: ['mechanical'],
     tags: [['Mechanical Design','mechanical']],
-    img: '',
+    img: 'images/BRIDGE_complete.jpg',
     gallery: [
-      { src: 'images/BRIDGE_build.jpg', caption: 'Laying up the truss with epoxy over a printed template' },
-      { src: 'images/BRIDGE_complete.jpg', caption: 'Finished span, arched top chord with triangulated webbing' },
-      { src: 'images/BRIDGE_test.jpg', caption: 'Load testing to failure with hanging buckets' }
+      { src: 'images/BRIDGE_calcs.jpg', caption: 'Calculating loads and estimated weights before construction.' },
+      { src: 'images/BRIDGE_build.jpg', caption: 'Finishing up the build, so much epoxy..' },
+      { src: 'images/BRIDGE_test.jpg', caption: 'Testing to failure with buckets of sand; could have held a lot more if one strut cured fully.' }
     ],
     summary: 'A truss bridge built from spaghetti and epoxy under strict height and weight limits. It carried more load than any other entry that stayed within the constraints, placing 3rd overall.',
     points: [
