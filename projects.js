@@ -173,8 +173,8 @@ const PROJECTS = [
     tags: [['Mechatronics','mechatronics'], ['Controls','controls']],
     img: '',
     gallery: [
-      { src: 'images/DAVID_claw.jpg', caption: 'Differential claw and turret assembly in carbon fiber' },
-      { src: 'images/DAVID_hang.jpg', caption: 'Arm and claw extended on the field' }
+      { src: 'images/DAVID_claw.jpg', caption: 'Differential claw and turret assembly in carbon fiber', crop: '1/1' },
+      { src: 'images/DAVID_hang.jpg', caption: 'Arm and claw extended on the field', crop: '1/1' }
     ],
     summary: 'A robot designed around reach and dexterity: a turret with over 360° of rotation, coaxial belt-driven linear rails mounted on a pivot, and a differential claw for grabbing game pieces.',
     points: [

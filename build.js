@@ -16,7 +16,7 @@ const path = require('path');
 const PROJECTS = require('./projects.js');
 
 const SITE = 'Ethan Zhou';
-const CSS_VERSION = 25;
+const CSS_VERSION = 27;
 
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -55,12 +55,15 @@ function page(p) {
   const quote = p.quote ? `
         <blockquote class="modal-quote">${esc(p.quote.text)}<cite>&mdash; ${esc(p.quote.cite)}</cite></blockquote>` : '';
 
+  // Images render at their true aspect ratio unless the entry sets `crop`
+  // (e.g. crop: '4/3'), which trims dead space to that ratio instead.
   const gallery = (p.gallery || []).length ? `
         <section class="project-gallery">
           <h2 class="modal-section-heading">Gallery</h2>
           <div class="gallery-grid">
             ${p.gallery.map(g => `<figure class="gallery-item">
-              <img src="../${esc(g.src)}" alt="${esc(g.caption || p.title)}" loading="lazy">
+              <img src="../${esc(g.src)}" alt="${esc(g.caption || p.title)}" loading="lazy"${
+                g.crop ? ` class="is-cropped" style="aspect-ratio:${esc(g.crop)}"` : ''}>
               ${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ''}
             </figure>`).join('\n            ')}
           </div>
