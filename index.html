@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ethan Zhou — Portfolio</title>
   <meta name="description" content="Ethan Zhou — mechanical engineering student at the University of Pennsylvania, robotics builder, and biomedical researcher." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B0522F'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F6EEDC' text-anchor='middle'%3EEZ%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <!-- Bump ?v= when you change style.css so browsers don't serve a cached copy -->
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body>
 
@@ -19,9 +20,9 @@
   <header class="site-header">
     <span class="header-name">Ethan Zhou</span>
     <nav class="header-nav" aria-label="Page sections">
+      <a href="#background">Background</a>
       <a href="#projects">Projects</a>
-      <a href="#credentials">Credentials</a>
-      <a href="#contact-row">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -33,7 +34,9 @@
     <section class="hero" aria-label="Introduction">
       <div class="hero-inner">
 
-        <!-- LEFT: Profile Card -->
+        <!-- LEFT: intro rectangle + experience, stacked -->
+        <div class="hero-left">
+
         <aside class="profile-card" aria-label="Profile">
 
           <!-- Circular photo placeholder -->
@@ -44,82 +47,102 @@
             </svg>
           </div>
 
-          <!-- Name & subtitle -->
-          <h1 class="profile-name">Ethan Zhou</h1>
-          <p class="profile-subtitle">Mechanical Engineering · Robotics · Research</p>
+          <div class="profile-text">
+            <h1 class="profile-name">Ethan Zhou</h1>
+            <p class="profile-subtitle">Mechanical Engineering &middot; Robotics &middot; Research</p>
 
-          <!-- About paragraph -->
-          <p class="profile-bio">
-            Hey! I'm an incoming freshman studying Mechanical Engineering at the University of Pennsylvania, super passionate about anything robotics — especially within the medical space. Previously, I've placed 2nd in the world in robotics and conducted nanoparticle drug-delivery research at Johns Hopkins. I'm always looking to build new projects and try new things, so please feel free to reach out!
-          </p>
+            <p class="profile-bio">
+              Hey! I'm an incoming freshman studying Mechanical Engineering at the University of Pennsylvania, super passionate about anything robotics &mdash; especially within the medical space. Previously, I've placed 2nd in the world in robotics and conducted nanoparticle drug-delivery research at Johns Hopkins. I'm always looking to build new projects and try new things, so please feel free to reach out!
+            </p>
 
-          <!-- Action buttons -->
-          <div class="profile-actions" id="contact-row">
-            <a href="https://drive.google.com/file/d/1UGFIzrJO-yFdmoAfzXMEZqvPG4AEAjJo/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-primary">Resume ↗</a>
-            <a href="mailto:ezhoumd@gmail.com" class="btn btn-outline">Email</a>
-            <a href="https://www.linkedin.com/in/ezhoumd/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
-            <a href="https://github.com/ezhoumd" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+            <div class="profile-actions">
+              <a href="https://drive.google.com/file/d/1UGFIzrJO-yFdmoAfzXMEZqvPG4AEAjJo/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-primary"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>Resume</a>
+              <a href="mailto:ezhoumd@gmail.com" class="btn btn-outline"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>Email</a>
+              <a href="https://www.linkedin.com/in/ezhoumd/" target="_blank" rel="noopener" class="btn btn-outline"><svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24H.24V8.25Zm7.86 0h4.31v2.15h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.16V24H8.1V8.25Z"/></svg>LinkedIn</a>
+              <a href="https://github.com/ezhoumd" target="_blank" rel="noopener" class="btn btn-outline"><svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.21.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5Z"/></svg>GitHub</a>
+            </div>
           </div>
 
         </aside>
 
-        <!-- RIGHT: Featured Projects -->
+        <!-- Experience sits here so the column isn't left half-empty -->
+        <div class="cred-block hero-experience">
+          <h3 class="cred-heading">Experience</h3>
+          <ul class="exp-list">
+
+            <li>
+              <div class="exp-main">
+                <h4 class="exp-role"><strong>Bambu Lab</strong> &mdash; Mechanical Design Intern</h4>
+                <p class="exp-desc">Developed toolchangers and toolheads for 3D printers.</p>
+              </div>
+              <span class="cred-year exp-date">Jun&ndash;Jul 2026</span>
+            </li>
+
+            <li>
+              <div class="exp-main">
+                <h4 class="exp-role"><strong>Nostopharma</strong> &mdash; Mechanical Design Lead</h4>
+                <p class="exp-desc">Leading design of a 3-axis automated pipetting platform that generates experimental compound variants. Managing the client-facing contractor project across requirements, CAD, prototyping, and design reviews.</p>
+              </div>
+              <span class="cred-year exp-date">Jan 2026&ndash;Present</span>
+            </li>
+
+            <li>
+              <div class="exp-main">
+                <h4 class="exp-role"><strong>Johns Hopkins School of Medicine</strong> &mdash; Research Intern</h4>
+                <p class="exp-desc">Ran a full in-vitro study on ocular nanoparticle drug efficacy across storage conditions with the Green Group. Presented at BMES 2025 and co-authored a publication on ovarian cancer immune-profiling.</p>
+              </div>
+              <span class="cred-year exp-date">Jun&ndash;Oct 2025</span>
+            </li>
+
+            <li>
+              <div class="exp-main">
+                <h4 class="exp-role"><strong>GeneImmune Biotechnology</strong> &mdash; Research Intern</h4>
+                <p class="exp-desc">Measured and purified influenza proteins, supplying research labs with materials to help prevent future flu outbreaks.</p>
+              </div>
+              <span class="cred-year exp-date">Jul&ndash;Aug 2024</span>
+            </li>
+
+          </ul>
+        </div>
+
+        </div><!-- /hero-left -->
+
+        <!-- RIGHT: two featured projects, stacked -->
         <section class="featured-projects" aria-labelledby="featured-heading">
           <h2 class="section-eyebrow" id="featured-heading">Featured Projects</h2>
 
           <div class="featured-grid">
 
-            <!-- Featured Card 1 — click opens detail modal -->
-            <article class="featured-card featured-card--large" data-project="dugtrio" role="button" tabindex="0">
+            <article class="featured-card" data-project="dugtrio" role="button" tabindex="0">
               <div class="fcard-img-wrap">
                 <img src="images/DUGTRIO.png" alt="Dugtrio robot">
-                <span class="fcard-badge">Featured</span>
               </div>
               <div class="fcard-body">
                 <div class="fcard-tags">
-                  <span class="tag tag--robotics">Robotics</span>
-                  <span class="tag tag--mechanical">Mechanical Design</span>
+                  <span class="tag tag--mechatronics">Mechatronics</span>
+                  <span class="tag tag--controls">Controls</span>
                 </div>
-                <h3 class="fcard-title">Dugtrio <strong>·</strong> 2025–2026</h3>
-                <p class="fcard-desc">The world's only robot with three shooters on a turret, designed for the 2025–26 FIRST Tech Challenge DECODE season. <strong>Placed 2nd in the world out of 8,000+ teams</strong> and 1st in the Chesapeake region.</p>
-                <span class="fcard-link">View details →</span>
+                <h3 class="fcard-title">Dugtrio <strong>&middot;</strong> 2025&ndash;2026</h3>
+                <p class="fcard-desc">The world's only robot with three shooters on a turret. <strong>Placed 2nd in the world out of 8,000+ teams</strong> and 1st in the Chesapeake region.</p>
+                <span class="fcard-link">View details &rarr;</span>
               </div>
             </article>
 
-            <!-- Featured Cards 2 & 3 side-by-side -->
-            <div class="featured-pair">
+            <article class="featured-card" data-project="blastoise" role="button" tabindex="0">
+              <div class="fcard-img-wrap">
+                <img src="images/BLASTOISE_MTI.jpg" alt="Blastoise robot">
+              </div>
+              <div class="fcard-body">
+                <div class="fcard-tags">
+                  <span class="tag tag--mechatronics">Mechatronics</span>
+                  <span class="tag tag--controls">Controls</span>
+                </div>
+                <h3 class="fcard-title">Blastoise <strong>&middot;</strong> 2024&ndash;2025</h3>
+                <p class="fcard-desc">All-in-one telescoping arm that intakes and scores without a transfer. <strong>Peaked 7th Offensive Power Rating worldwide</strong>.</p>
+                <span class="fcard-link">View details &rarr;</span>
+              </div>
+            </article>
 
-              <article class="featured-card" data-project="blastoise" role="button" tabindex="0">
-                <div class="fcard-img-wrap">
-                  <img src="images/BLASTOISE_MTI.jpg" alt="Blastoise robot">
-                  <span class="fcard-badge">Featured</span>
-                </div>
-                <div class="fcard-body">
-                  <div class="fcard-tags">
-                    <span class="tag tag--robotics">Robotics</span>
-                  </div>
-                  <h3 class="fcard-title">Blastoise <strong>·</strong> 2024–2025</h3>
-                  <p class="fcard-desc">Robot with a telescoping arm and a unique 2-stage hang, built for the FTC Into the Deep season. <strong>Peaked 7th Offensive Power Rating worldwide</strong>.</p>
-                  <span class="fcard-link">View details →</span>
-                </div>
-              </article>
-
-              <article class="featured-card" data-project="recycla" role="button" tabindex="0">
-                <div class="fcard-img-wrap">
-                  <img src="images/Recycla.png" alt="Recycla bottle-to-filament recycler">
-                  <span class="fcard-badge">Featured</span>
-                </div>
-                <div class="fcard-body">
-                  <div class="fcard-tags">
-                    <span class="tag tag--mechanical">Mechanical Design</span>
-                  </div>
-                  <h3 class="fcard-title">Recycla</h3>
-                  <p class="fcard-desc">Bottle-to-filament recycler with a custom extruder assembly and planetary gearbox — <strong>90% faster than open-source designs</strong>.</p>
-                  <span class="fcard-link">View details →</span>
-                </div>
-              </article>
-
-            </div><!-- /featured-pair -->
           </div><!-- /featured-grid -->
         </section>
 
@@ -127,93 +150,19 @@
     </section>
 
     <!-- ============================================================
-         STATS ROW — five achievement highlights
-    ============================================================ -->
-    <section class="stats-section" aria-label="Highlights">
-      <div class="stats-inner">
-
-        <a href="#projects" class="stat-card">
-          <span class="stat-value">2nd</span>
-          <span class="stat-label">in the world · FTC, 8,000+ teams</span>
-          <span class="stat-hint">See projects →</span>
-        </a>
-
-        <a href="#credentials" class="stat-card">
-          <span class="stat-value">3</span>
-          <span class="stat-label">publications &amp; presentations</span>
-          <span class="stat-hint">See publications →</span>
-        </a>
-
-        <a href="#projects" class="stat-card">
-          <span class="stat-value">$6,000+</span>
-          <span class="stat-label">raised for robotics education</span>
-          <span class="stat-hint">See outreach →</span>
-        </a>
-
-        <a href="#projects" class="stat-card">
-          <span class="stat-value">400+</span>
-          <span class="stat-label">students taught STEM</span>
-          <span class="stat-hint">See outreach →</span>
-        </a>
-
-        <a href="#credentials" class="stat-card">
-          <span class="stat-value">Eagle Scout</span>
-          <span class="stat-label">with Bronze Palm</span>
-          <span class="stat-hint">See awards →</span>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- ============================================================
          CREDENTIALS — education / experience / awards / publications / skills
     ============================================================ -->
-    <section class="credentials" id="credentials" aria-labelledby="credentials-heading">
-      <h2 class="visually-hidden" id="credentials-heading">Credentials</h2>
+    <section class="credentials" id="background" aria-labelledby="background-heading">
+      <h2 class="visually-hidden" id="background-heading">Background</h2>
 
       <div class="credentials-grid">
-
-        <!-- Education + Experience -->
-        <div class="cred-block">
-          <h3 class="cred-heading">Education</h3>
-          <ul class="cred-list">
-            <li>
-              <span class="cred-year">2026–30</span>
-              <span class="cred-text"><strong>University of Pennsylvania</strong> — Mechanical Engineering</span>
-            </li>
-            <li>
-              <span class="cred-year">2022–26</span>
-              <span class="cred-text"><strong>Bullis School</strong> — 4.0 GPA · 1560 SAT · 13 APs</span>
-            </li>
-          </ul>
-
-          <h3 class="cred-heading cred-heading--stacked">Experience</h3>
-          <ul class="cred-list">
-            <li>
-              <span class="cred-year">2026</span>
-              <span class="cred-text"><strong>Bambu Lab</strong> — toolchangers &amp; toolheads for 3D printers</span>
-            </li>
-            <li>
-              <span class="cred-year">2026</span>
-              <span class="cred-text"><strong>Nostapharma</strong> — 3-axis automated pipetting platform</span>
-            </li>
-            <li>
-              <span class="cred-year">2025</span>
-              <span class="cred-text"><strong>Johns Hopkins School of Medicine</strong> — Green Group, ocular nanoparticle drug delivery</span>
-            </li>
-            <li>
-              <span class="cred-year">2024</span>
-              <span class="cred-text"><strong>GeneImmune Biotechnology</strong> — influenza protein purification</span>
-            </li>
-          </ul>
-        </div>
 
         <!-- Awards -->
         <div class="cred-block">
           <h3 class="cred-heading">Awards</h3>
           <ul class="cred-list">
             <li>
-              <span class="cred-year">Worlds</span>
+              <span class="cred-year">1x</span>
               <span class="cred-text">FTC Inspire Award — top award, 6 of 8,000+ teams globally</span>
             </li>
             <li>
@@ -221,7 +170,7 @@
               <span class="cred-text">FTC Worlds Innovate Award — top 0.15% worldwide</span>
             </li>
             <li>
-              <span class="cred-year">Region</span>
+              <span class="cred-year">1x</span>
               <span class="cred-text">Chesapeake FTC Regional Inspire Award</span>
             </li>
             <li>
@@ -229,11 +178,11 @@
               <span class="cred-text">Chesapeake FTC Regional Champion — top 1 of 250+ teams</span>
             </li>
             <li>
-              <span class="cred-year">13/40</span>
-              <span class="cred-text">Multinational Tech Invitational — top FTC teams worldwide</span>
+              <span class="cred-year">1x</span>
+              <span class="cred-text">Multinational Tech Invitational — 13th of 40 top FTC teams worldwide</span>
             </li>
             <li>
-              <span class="cred-year">BSA</span>
+              <span class="cred-year">1x</span>
               <span class="cred-text">Eagle Scout Rank with Bronze Palm</span>
             </li>
             <li>
@@ -265,44 +214,103 @@
           </ul>
         </div>
 
-        <!-- Skills -->
-        <div class="cred-block">
-          <h3 class="cred-heading">Skills</h3>
-          <div class="skills-area">
-            <div class="skill-group">
-              <span class="skill-group-label">Engineering</span>
+      </div><!-- /credentials-grid -->
+
+      <!-- Skills — full-width band so each domain gets room for subsections -->
+      <div class="skills-block">
+        <h3 class="cred-heading">Skills</h3>
+
+        <div class="skills-domains">
+
+          <div class="skill-domain">
+            <span class="skill-domain-label">Mechanical Engineering</span>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">CAD &amp; PLM</span>
               <div class="skill-chips">
-                <span class="chip">CAD (Creo, Onshape)</span>
+                <span class="chip">Creo</span>
+                <span class="chip">Onshape</span>
+                <span class="chip">Windchill</span>
                 <span class="chip">GD&amp;T</span>
-                <span class="chip">FEA</span>
-                <span class="chip">DFM / DFA</span>
-                <span class="chip">Manual Machining</span>
-                <span class="chip">3D Printing</span>
+                <span class="chip">Engineering Drawings</span>
               </div>
             </div>
-            <div class="skill-group">
-              <span class="skill-group-label">Software</span>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">Analysis</span>
+              <div class="skill-chips">
+                <span class="chip">FEA</span>
+                <span class="chip">SimScale</span>
+              </div>
+            </div>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">Manufacturing</span>
+              <div class="skill-chips">
+                <span class="chip">DFMA</span>
+                <span class="chip">Manual Machining</span>
+                <span class="chip">3D Printing</span>
+                <span class="chip">Injection Molding</span>
+                <span class="chip">Rapid Prototyping</span>
+                <span class="chip">Materials &amp; Process Selection</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-domain">
+            <span class="skill-domain-label">Software</span>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">Languages</span>
               <div class="skill-chips">
                 <span class="chip">Java</span>
                 <span class="chip">Python</span>
+                <span class="chip">LaTeX</span>
               </div>
             </div>
-            <div class="skill-group">
-              <span class="skill-group-label">Wet Lab</span>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">Tools</span>
+              <div class="skill-chips">
+                <span class="chip">Git</span>
+                <span class="chip">GitHub</span>
+                <span class="chip">Codex</span>
+                <span class="chip">Claude Code</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-domain">
+            <span class="skill-domain-label">Wet Lab</span>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">Techniques</span>
               <div class="skill-chips">
                 <span class="chip">Cell Culture</span>
                 <span class="chip">Polymer/Nanoparticle Synthesis</span>
-                <span class="chip">Flow Cytometry</span>
-                <span class="chip">DLS/Osmometer</span>
                 <span class="chip">ELISA</span>
                 <span class="chip">SDS-PAGE</span>
+              </div>
+            </div>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">Instrumentation</span>
+              <div class="skill-chips">
+                <span class="chip">Flow Cytometry</span>
+                <span class="chip">DLS / Osmometer</span>
+              </div>
+            </div>
+
+            <div class="skill-sub">
+              <span class="skill-sub-label">Analysis</span>
+              <div class="skill-chips">
                 <span class="chip">FlowJo</span>
                 <span class="chip">GraphPad Prism</span>
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
 
@@ -316,18 +324,18 @@
           <p class="section-sub">Click any card for more detail.</p>
         </div>
 
-        <!-- Filter dropdown -->
-        <div class="filter-wrap">
-          <label for="project-filter" class="filter-label">Filter by</label>
-          <select id="project-filter" class="filter-select" aria-label="Filter projects by category">
-            <option value="all">All</option>
-            <option value="robotics">Robotics</option>
-            <option value="mechanical">Mechanical Design</option>
-            <option value="research">Research</option>
-            <option value="biomedical">Biomedical</option>
-            <option value="outreach">Outreach</option>
-          </select>
-        </div>
+      </div>
+
+      <!-- Filter pills — all categories visible in one line -->
+      <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter projects by category">
+        <button type="button" class="filter-pill is-active" data-filter="all">All</button>
+        <button type="button" class="filter-pill" data-filter="mechatronics">Mechatronics</button>
+        <button type="button" class="filter-pill" data-filter="controls">Controls</button>
+        <button type="button" class="filter-pill" data-filter="mechanical">Mechanical Design</button>
+        <button type="button" class="filter-pill" data-filter="manufacturing">Manufacturing</button>
+        <button type="button" class="filter-pill" data-filter="product">Product</button>
+        <button type="button" class="filter-pill" data-filter="research">Research</button>
+        <button type="button" class="filter-pill" data-filter="misc">Misc</button>
       </div>
 
       <!-- Project card grid — cards are generated from the PROJECTS
@@ -371,26 +379,46 @@
         <!-- Pull quote -->
         <blockquote class="modal-quote" id="modal-quote"></blockquote>
 
-        <a class="btn btn-primary modal-link" id="modal-link" target="_blank" rel="noopener" hidden>Open files ↗</a>
+        <!-- One button per link that has a URL filled in -->
+        <div class="modal-links" id="modal-links"></div>
       </div>
     </div>
   </dialog>
 
   <!-- ============================================================
-       SITE FOOTER
+       SITE FOOTER — doubles as the Contact target
   ============================================================ -->
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Ethan Zhou &middot; Built with care</p>
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <h2 class="footer-heading">Get in touch</h2>
+      <p class="footer-note">Always happy to talk robotics, research, or a new project.</p>
+
+      <div class="footer-links">
+        <a href="mailto:ezhoumd@gmail.com" class="btn btn-primary"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>ezhoumd@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ezhoumd/" target="_blank" rel="noopener" class="btn btn-outline"><svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24H.24V8.25Zm7.86 0h4.31v2.15h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.16V24H8.1V8.25Z"/></svg>LinkedIn</a>
+        <a href="https://github.com/ezhoumd" target="_blank" rel="noopener" class="btn btn-outline"><svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.21.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5Z"/></svg>GitHub</a>
+        <a href="https://drive.google.com/file/d/1UGFIzrJO-yFdmoAfzXMEZqvPG4AEAjJo/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>Resume</a>
+      </div>
+
+      <p class="footer-copy">&copy; <span id="year"></span> Ethan Zhou</p>
+    </div>
   </footer>
 
   <script>
   /* ================================================================
      ↓↓↓  PASTE YOUR GOOGLE DRIVE LINKS HERE  ↓↓↓
 
-     Every project below has a `link:` field. Paste a Google Drive
-     (or any other) URL between the quotes and an "Open files ↗"
-     button appears in that project's popup. Leave it as '' and the
-     button stays hidden — nothing else to change.
+     Every project below has a `links:` array. Paste a Google Drive
+     (or any other) URL into a slot's `url: ''` and a button with that
+     slot's `label` appears in the project's popup. Leave a url empty
+     and its button stays hidden. Add as many slots as you like:
+
+       links: [
+         { label: 'Publication', url: 'https://drive.google.com/...' },
+         { label: 'CAD',         url: '' }
+       ]
+
+     Research entries already have Publication / Poster slots ready.
   ================================================================ */
   const PROJECTS = [
     {
@@ -398,8 +426,8 @@
       blurb: "The world's only robot with three shooters on a turret — three independent flywheels fire at once instead of bottlenecking on sorting.",
       title: 'Dugtrio',
       meta: '2025–2026 · FTC DECODE · Team 6417 Blu Cru',
-      cats: ['robotics', 'mechanical'],
-      tags: [['Robotics','robotics'], ['Mechanical Design','mechanical']],
+      cats: ['mechatronics', 'controls', 'mechanical'],
+      tags: [['Mechatronics','mechatronics'], ['Controls','controls']],
       img: 'images/DUGTRIO.png',
       summary: "The world's only robot with three shooters mounted on a turret. Where most teams shoot one ball at a time and bottleneck on sorting, Dugtrio fires three at once — or completes a motif deliberately — using three independent flywheels.",
       points: [
@@ -462,15 +490,17 @@
           ]
         }
       ],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'blastoise',
       blurb: 'All-in-one robot that intakes and scores with a single 34-inch telescoping arm, eliminating the transfer mechanism entirely.',
       title: 'Blastoise',
       meta: '2024–2025 · FTC Into the Deep · Team 6417 Blu Cru',
-      cats: ['robotics', 'mechanical'],
-      tags: [['Robotics','robotics'], ['Mechanical Design','mechanical']],
+      cats: ['mechatronics', 'controls', 'mechanical'],
+      tags: [['Mechatronics','mechatronics'], ['Controls','controls']],
       img: 'images/BLASTOISE_MTI.jpg',
       summary: 'An all-in-one robot that intakes and scores with a single telescoping arm, eliminating the need for a transfer mechanism entirely. Evolved from our States robot, Wartortle.',
       points: [
@@ -534,86 +564,100 @@
           ]
         }
       ],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'recycla',
       title: 'Recycla',
       meta: 'Personal project',
-      cats: ['mechanical'],
-      tags: [['Mechanical Design','mechanical']],
+      cats: ['mechatronics', 'mechanical', 'manufacturing'],
+      tags: [['Mechatronics','mechatronics'], ['Manufacturing','manufacturing']],
       img: 'images/Recycla.png',
       summary: 'Bottle-to-filament recycler that turns used plastic bottles into usable 3D-printer filament.',
       points: [
         'Custom extruder assembly paired with a planetary gearbox',
         '90% faster than comparable open-source designs'
       ],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'diffy-pto',
       title: 'Differential Power Takeoff',
       meta: 'Mechanism design',
-      cats: ['mechanical', 'robotics'],
+      cats: ['mechanical'],
       tags: [['Mechanical Design','mechanical']],
       img: 'images/Diffy PTO.png',
       summary: 'Multi-input gearbox that enables dynamic torque sharing between synchronized output mechanisms.',
       points: [],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'linear-odo',
       title: 'Linear Odometry',
       meta: 'Robot localization',
-      cats: ['robotics', 'mechanical'],
-      tags: [['Robotics','robotics']],
+      cats: ['mechatronics', 'controls'],
+      tags: [['Controls','controls'], ['Mechatronics','mechatronics']],
       img: 'images/Linear Odo.png',
       summary: 'Robust, high-precision linear-rail-based robot localization designed to hold accuracy in a high-vibration environment.',
       points: [],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'cycloidal',
       title: 'Cycloidal Gearbox',
       meta: 'Mechanism design',
-      cats: ['mechanical'],
-      tags: [['Mechanical Design','mechanical']],
+      cats: ['mechanical', 'manufacturing'],
+      tags: [['Mechanical Design','mechanical'], ['Manufacturing','manufacturing']],
       img: '',
       summary: 'Bearing-based 3D-printed gearbox for high-torque, low-backlash power transmission.',
       points: [],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'bambu',
       title: 'Bambu Lab',
       meta: 'Summer 2026 · Work experience',
-      cats: ['mechanical'],
-      tags: [['Mechanical Design','mechanical']],
+      cats: ['mechatronics', 'mechanical', 'product'],
+      tags: [['Product','product'], ['Mechatronics','mechatronics']],
       img: '',
       summary: 'Developed toolchangers and toolheads for 3D printers.',
       points: [],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'nostapharma',
       title: 'Automated Pipetting Platform',
-      meta: 'Winter–Summer 2026 · Nostapharma',
-      cats: ['mechanical', 'research'],
-      tags: [['Mechanical Design','mechanical'], ['Research','research']],
+      meta: 'Jan 2026–Present · Nostopharma',
+      cats: ['mechatronics', 'product', 'research'],
+      tags: [['Mechatronics','mechatronics'], ['Product','product']],
       img: '',
-      summary: 'Lead design of a 3-axis automated pipetting platform that generates experimental chemical compound variants.',
+      summary: 'Leading design of a 3-axis automated pipetting platform that generates experimental chemical compound variants.',
       points: [
-        'Managed a client-facing contractor project end to end',
-        'Owned requirements, CAD, prototyping, and design reviews'
+        'Managing a client-facing contractor project end to end',
+        'Owning requirements, CAD, prototyping, and design reviews'
       ],
-      link: ''
+      links: [
+        { label: 'Project write-up', url: '' }
+      ]
     },
     {
       id: 'jhu',
       title: 'Nanoparticle Drug Delivery',
       meta: 'Summer–Fall 2025 · Johns Hopkins School of Medicine',
-      cats: ['research', 'biomedical'],
-      tags: [['Research','research'], ['Biomedical','biomedical']],
+      cats: ['research'],
+      tags: [['Research','research']],
       img: '',
       summary: 'Interned with the Green Group, focusing on ocular nanoparticle drug delivery.',
       points: [
@@ -621,25 +665,30 @@
         'Presented findings at the BMES 2025 Annual Conference',
         'Co-authored a publication on ovarian cancer immune-profiling'
       ],
-      link: ''
+      links: [
+        { label: 'Publication', url: '' },
+        { label: 'BMES Poster', url: '' }
+      ]
     },
     {
       id: 'geneimmune',
       title: 'Influenza Protein Purification',
       meta: 'Summer 2024 · GeneImmune Biotechnology LLC',
-      cats: ['research', 'biomedical'],
-      tags: [['Research','research'], ['Biomedical','biomedical']],
+      cats: ['research'],
+      tags: [['Research','research']],
       img: '',
       summary: 'Measured and purified influenza proteins to supply research labs with the materials needed to help prevent future flu outbreaks.',
       points: [],
-      link: ''
+      links: [
+        { label: 'Publication', url: '' }
+      ]
     },
     {
       id: 'team-usa',
       title: 'FIRST Global — Team USA',
       meta: '2021–Present · Captain, FTC 6417/19818',
-      cats: ['robotics', 'outreach'],
-      tags: [['Robotics','robotics'], ['Outreach','outreach']],
+      cats: ['misc'],
+      tags: [['Misc','misc']],
       img: '',
       summary: 'Selected as one of five members of Team USA, representing 70,000+ competitors at the FIRST Global Challenge.',
       points: [
@@ -647,15 +696,17 @@
         'Coordinated the mechanical, software, and outreach subteams',
         'Guided all engineering and operational decisions'
       ],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'minime',
       blurb: 'A robotics kit that costs 60 cents to make, designed as the lowest-barrier first step into STEM for kids aged 4–10.',
       title: 'MiniMe',
       meta: 'STEM outreach · Rockville Science Center',
-      cats: ['outreach', 'robotics'],
-      tags: [['Outreach','outreach']],
+      cats: ['product', 'manufacturing', 'misc'],
+      tags: [['Product','product'], ['Manufacturing','manufacturing']],
       img: '',
       summary: 'A robotics kit that costs 60 cents to make, designed as the lowest-possible-barrier first step into STEM for kids aged 4–10.',
       points: [
@@ -685,15 +736,17 @@
           ]
         }
       ],
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     },
     {
       id: 'kenya-uganda',
       blurb: "Launched Uganda's FIRST Tech Challenge region — building the coaching and competition infrastructure, not just running a workshop.",
       title: 'Kenya–Uganda Robotics Initiative',
       meta: 'Winter 2025–Present · Curriculum Developer & Educational Program Lead',
-      cats: ['outreach'],
-      tags: [['Outreach','outreach']],
+      cats: ['misc'],
+      tags: [['Misc','misc']],
       img: 'images/UG BOT.png',
       summary: "Launched Uganda's FIRST Tech Challenge region from scratch — not just teaching a workshop, but building the coaching and competition infrastructure for the program to run without us.",
       points: [
@@ -723,7 +776,9 @@
         text: "Blu Cru's tireless efforts have been instrumental in transforming our vision into reality.",
         cite: 'Hannah Mellon Kenyangi, FIRST Uganda Director'
       },
-      link: ''
+      links: [
+        { label: 'Files', url: '' }
+      ]
     }
   ];
 
@@ -755,12 +810,11 @@
     </article>
   `).join('');
 
-  // --- Project filter (supports cards in multiple categories) ---
-  const select = document.getElementById('project-filter');
-  const empty  = document.getElementById('projects-empty');
+  // --- Project filter pills (a card can sit in several categories) ---
+  const filterBar = document.getElementById('filter-bar');
+  const empty     = document.getElementById('projects-empty');
 
-  select.addEventListener('change', () => {
-    const val = select.value;
+  function applyFilter(val) {
     let visible = 0;
 
     document.querySelectorAll('.project-card').forEach(card => {
@@ -771,7 +825,20 @@
     });
 
     empty.hidden = visible > 0;
+
+    filterBar.querySelectorAll('.filter-pill').forEach(btn => {
+      const on = btn.dataset.filter === val;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-pressed', on);
+    });
+  }
+
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-pill');
+    if (btn) applyFilter(btn.dataset.filter);
   });
+
+  applyFilter('all');
 
   // --- Project detail modal ---
   const modal    = document.getElementById('project-modal');
@@ -785,7 +852,7 @@
   const mPoints  = document.getElementById('modal-points');
   const mSections= document.getElementById('modal-sections');
   const mQuote   = document.getElementById('modal-quote');
-  const mLink    = document.getElementById('modal-link');
+  const mLinks   = document.getElementById('modal-links');
 
   // Escape text coming from the PROJECTS config before it hits innerHTML
   const esc = s => String(s).replace(/[&<>"]/g, c =>
@@ -848,13 +915,12 @@
       mQuote.hidden = true;
     }
 
-    // "Open files" button only shows once a link has been pasted in
-    if (p.link && p.link.trim()) {
-      mLink.href = p.link.trim();
-      mLink.hidden = false;
-    } else {
-      mLink.hidden = true;
-    }
+    // One button per link that actually has a URL filled in
+    const links = (p.links || []).filter(l => l.url && l.url.trim());
+    mLinks.innerHTML = links.map(l =>
+      `<a class="btn btn-primary" href="${esc(l.url.trim())}" target="_blank" rel="noopener">${esc(l.label)} \u2197</a>`
+    ).join('');
+    mLinks.hidden = !links.length;
 
     modal.showModal();
     // After showModal(), so the dialog's own focus scroll can't override it

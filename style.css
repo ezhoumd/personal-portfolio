@@ -6,9 +6,9 @@
    2. Tokens (colors, type, space)
    3. Utility
    4. Header
-   5. Hero (two-column)
-   6. Stats row
-   7. Credentials row
+   5. Hero (intro rectangle + stacked featured)
+   6. Credentials row
+   7. Skills block
    8. Projects section
    9. Footer
    10. Responsive
@@ -69,21 +69,26 @@ a {
   --border:      #D9CBB4;   /* muted warm border */
   --border-blue: #C4D8E0;   /* muted blue-gray border for page-level dividers */
 
-  --text:        #263238;   /* dark slate / charcoal primary text */
-  --muted:       #5E7380;   /* muted blue-gray secondary text */
-  --muted-light: #8AA0AA;   /* very muted — placeholders, labels */
+  /* Text — deepened so body copy clears WCAG AA on both page and card */
+  --text:        #22303A;   /* primary text — 12.2:1 on page */
+  --muted:       #4C6673;   /* secondary text — 5.5:1 on page, 5.3:1 on card */
+  --muted-light: #6E858F;   /* labels, placeholders — 3.5:1 */
 
-  --sage:        #6B9E82;   /* sage green — tags, focus rings, subtle accents */
-  --sage-pale:   #E8F3EC;   /* pale sage — tag backgrounds */
-  --sage-dark:   #4E7D64;   /* deeper sage — hover on sage-colored elements */
+  /* Sage — accents. `sage` is for fills, `sage-dark` for text on pale fills. */
+  --sage:        #45755B;   /* fill (white text passes at 5.3:1) */
+  --sage-pale:   #E4F0E9;   /* pale fill behind sage text */
+  --sage-dark:   #3D6B53;   /* text on sage-pale — 5.2:1 */
 
-  --clay:        #C7653E;   /* warm clay / orange — primary buttons, badges */
-  --clay-dark:   #A84F2F;   /* darker clay — button hover */
-  --clay-pale:   #F4DFD3;   /* pale clay — outreach tag bg */
+  /* Clay — primary buttons and badges */
+  --clay:        #B0522F;   /* fill (white text passes at 5.1:1) */
+  --clay-dark:   #90411F;   /* hover */
+  --clay-pale:   #F6E1D5;   /* pale fill behind clay text */
+  --clay-text:   #9C4527;   /* text on clay-pale — 5.1:1 */
 
-  --sky:         #8FBFD0;   /* muted sky blue — secondary accent, research tags */
-  --sky-pale:    #DDEFF5;   /* pale sky — research/software tag backgrounds */
-  --sky-dark:    #5A96AE;   /* deeper sky — hover text on sky elements */
+  /* Sky — secondary accent */
+  --sky:         #7FB4C8;
+  --sky-pale:    #DCEDF4;   /* pale fill behind sky text */
+  --sky-dark:    #2F6B82;   /* text on sky-pale — 4.9:1 */
 
   /* --- Typography --- */
   --font-display: 'DM Serif Display', Georgia, serif;
@@ -180,28 +185,38 @@ a {
   letter-spacing: 0.07em;
   padding: 2px 9px;
   border-radius: 20px;
+  border: 1px solid transparent;
   background: var(--sage-pale);
-  color: var(--sage);
+  color: var(--sage-dark);
 }
 
-/* Category-specific tag colors */
-.tag--robotics   { background: var(--sage-pale);  color: var(--sage); }
-.tag--research   { background: var(--sky-pale);   color: var(--sky-dark); }
-.tag--biomedical { background: #EDE8F5;            color: #7B63AA; }
-.tag--mechanical { background: #FDF0E6;            color: #B5662A; }
-.tag--software   { background: var(--sky-pale);   color: var(--sky-dark); }
-.tag--outreach   { background: var(--clay-pale);  color: var(--clay); }
+/* Category tag colors. Pale fills sit very close to the cream card in
+   luminance, so each carries a matching border to stay legible as a chip.
+   Every pairing below clears 4.9:1 text contrast. */
+.tag--mechatronics  { background: var(--clay-pale); color: var(--clay-text); border-color: #E4BFAB; }
+.tag--controls      { background: var(--sky-pale);  color: var(--sky-dark);  border-color: #B4D5E4; }
+.tag--mechanical    { background: #FBEADC;          color: #8A4A1C;          border-color: #E8CBAF; }
+.tag--manufacturing { background: var(--sage-pale); color: var(--sage-dark); border-color: #BFD9C9; }
+.tag--product       { background: #EAE4F3;          color: #5F4A8A;          border-color: #CFC2E4; }
+.tag--research      { background: #DBEFEC;          color: #1F6E6A;          border-color: #AFD8D2; }
+.tag--misc          { background: #E6ECEF;          color: #55666E;          border-color: #C7D4DA; }
 
 /* --- Buttons --- */
+.btn-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--s2);
+  gap: 6px;
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 600;
-  padding: 9px 18px;
+  padding: 9px 15px;
   border-radius: var(--radius-sm);
   border: 1.5px solid transparent;
   cursor: pointer;
@@ -299,45 +314,107 @@ a {
 ================================================================ */
 
 .hero {
-  padding: var(--s7) var(--page-gutter) var(--s6);
+  padding: var(--s6) var(--page-gutter) var(--s5);
 }
 
 .hero-inner {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: minmax(0, 1fr) 400px;
   gap: var(--s6);
   align-items: start;
 }
 
-/* --- Profile Card (left) — warmer than the blue page --- */
+/* Left column: intro rectangle with Experience beneath it, so the column
+   fills instead of leaving a tall gap next to the featured stack. */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+  min-width: 0;
+}
+
+.hero-experience {
+  padding: 0 var(--s2);
+}
+
+/* Experience entries: company + role lead, date pushed to the right so the
+   role is what the eye lands on first. */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+}
+
+.exp-list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s4);
+}
+
+.exp-main {
+  min-width: 0;
+}
+
+.exp-role {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.exp-role strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.exp-desc {
+  margin-top: var(--s1);
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+.exp-date {
+  flex-shrink: 0;
+  min-width: 124px;
+  text-align: center;
+}
+
+/* --- Intro rectangle (left) — wide and flat, photo beside the text --- */
 .profile-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: var(--s6) var(--s5);
+  padding: var(--s6);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--s6);
+  box-shadow: var(--shadow-md);
+}
+
+.profile-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--s3);
-  box-shadow: var(--shadow-md);
-  position: sticky;
-  top: 68px;
+  gap: var(--s2);
+  min-width: 0;
 }
 
 /* Circular profile photo placeholder */
 .profile-photo {
-  width: 100px;
-  height: 100px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
   overflow: hidden;
   background: var(--border);
   border: 3px solid var(--card-soft);
   box-shadow: var(--shadow-md);
   flex-shrink: 0;
-  margin-bottom: var(--s2);
 }
 
 .profile-photo svg {
@@ -347,7 +424,7 @@ a {
 
 .profile-name {
   font-family: var(--font-display);
-  font-size: 1.7rem;
+  font-size: 2.4rem;
   line-height: 1.2;
   color: var(--text);
 }
@@ -360,18 +437,19 @@ a {
 }
 
 .profile-bio {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-top: var(--s2);
+  max-width: 62ch;
 }
 
 .profile-actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s2);
-  justify-content: center;
-  margin-top: var(--s3);
+  justify-content: flex-start;
+  margin-top: var(--s4);
 }
 
 
@@ -397,13 +475,6 @@ a {
   gap: var(--s4);
 }
 
-/* Large card on top, pair of smaller cards below */
-.featured-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s4);
-}
-
 /* Shared featured card styles — cream on blue background */
 .featured-card {
   background: var(--card);
@@ -425,15 +496,14 @@ a {
   background: var(--card-soft);
 }
 
-/* Large card has a taller image */
-.featured-card--large .fcard-img-wrap {
+.fcard-img-wrap {
   height:240px;
   overflow: hidden;
 }
 
 .fcard-img-wrap {
   position: relative;
-  height: 140px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -445,23 +515,8 @@ a {
   transform: scale(1.01);
 }
 
-/* "Featured" badge — clay/orange */
-.fcard-badge {
-  position: absolute;
-  top: var(--s3);
-  left: var(--s3);
-  background: var(--clay);
-  color: #fff;
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 3px 8px;
-  border-radius: 20px;
-}
-
 .fcard-body {
-  padding: var(--s4) var(--s4) var(--s5);
+  padding: var(--s4) var(--s4) var(--s4);
   display: flex;
   flex-direction: column;
   gap: var(--s2);
@@ -503,104 +558,20 @@ a {
 
 
 /* ================================================================
-   6. STATS ROW
-   Signature element: colored left-border tape-strip cards that
-   reveal a "See →" hint on hover — feel clickable and personal.
-================================================================ */
-
-.stats-section {
-  /* Very slightly darker blue-tinted band to separate from page */
-  background: rgba(195, 224, 234, 0.30);
-  border-top: 1px solid var(--border-blue);
-  border-bottom: 1px solid var(--border-blue);
-  padding: var(--s5) var(--page-gutter);
-}
-
-.stats-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--s4);
-}
-
-/* Each stat is a full anchor — looks like a card, acts like a link */
-.stat-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  /* Left accent border cycles through palette colors below */
-  border-left: 4px solid var(--sage);
-  border-radius: var(--radius-md);
-  padding: var(--s4) var(--s4) var(--s3);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: box-shadow var(--ease), transform var(--ease),
-              border-left-color var(--ease), background var(--ease);
-  position: relative;
-}
-
-/* Cycle the left accent color to feel hand-curated */
-.stat-card:nth-child(1) { border-left-color: var(--sage); }
-.stat-card:nth-child(2) { border-left-color: var(--sky); }
-.stat-card:nth-child(3) { border-left-color: #9B7EC8; }  /* soft lavender */
-.stat-card:nth-child(4) { border-left-color: var(--clay); }
-.stat-card:nth-child(5) { border-left-color: #C09030; }  /* warm amber */
-
-.stat-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-  background: var(--card-soft);
-}
-
-.stat-value {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--text);
-  line-height: 1.2;
-}
-
-.stat-label {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-/* "See →" micro-label fades in on hover */
-.stat-hint {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--sage);
-  margin-top: var(--s2);
-  opacity: 0;
-  transform: translateY(2px);
-  transition: opacity var(--ease), transform var(--ease);
-}
-
-.stat-card:hover .stat-hint,
-.stat-card:focus-visible .stat-hint {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* ================================================================
    7. CREDENTIALS SECTION
    Compact four-column row — always visible, never hidden
 ================================================================ */
 
 .credentials {
-  padding: var(--s7) var(--page-gutter);
+  padding: var(--s6) var(--page-gutter) var(--s7);
 }
 
 .credentials-grid {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--s6);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s7);
   align-items: start;
 }
 
@@ -709,14 +680,7 @@ a {
   border: 1px solid var(--border);
   border-radius: 20px;
   color: var(--text);
-  transition: background var(--ease), border-color var(--ease), color var(--ease);
   cursor: default;
-}
-
-.chip:hover {
-  background: var(--sage-pale);
-  border-color: var(--sage);
-  color: var(--sage-dark);
 }
 
 /* Contact list in credentials */
@@ -737,6 +701,88 @@ a {
 
 
 /* ================================================================
+   7b. SKILLS BLOCK — full-width band, domains with subsections
+================================================================ */
+
+.skills-block {
+  max-width: var(--max-width);
+  margin: var(--s6) auto 0;
+}
+
+.skills-domains {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s6);
+  margin-top: var(--s4);
+}
+
+.skill-domain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.skill-domain-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+  padding-bottom: var(--s2);
+  border-bottom: 1.5px solid var(--border);
+}
+
+.skill-sub-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--sage-dark);
+  margin-bottom: var(--s2);
+}
+
+
+/* ================================================================
+   7c. FILTER PILLS — every category visible in one row
+================================================================ */
+
+.filter-bar {
+  max-width: var(--max-width);
+  margin: 0 auto var(--s6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.filter-pill {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--ease), color var(--ease),
+              border-color var(--ease), transform var(--ease);
+}
+
+.filter-pill:hover {
+  background: var(--card-soft);
+  border-color: var(--sage);
+  color: var(--sage-dark);
+  transform: translateY(-1px);
+}
+
+.filter-pill.is-active {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+}
+
+
+/* ================================================================
    8. PROJECTS SECTION
 ================================================================ */
 
@@ -744,7 +790,7 @@ a {
 .projects-section {
   background: rgba(246, 238, 220, 0.35);
   border-top: 1px solid var(--border-blue);
-  padding: var(--s7) var(--page-gutter) var(--s9);
+  padding: var(--s7) var(--page-gutter) var(--s8);
 }
 
 /* Header row: title + filter dropdown side by side */
@@ -770,45 +816,6 @@ a {
   font-size: 0.85rem;
   color: var(--muted);
   margin-top: var(--s1);
-}
-
-/* Filter dropdown */
-.filter-wrap {
-  display: flex;
-  align-items: center;
-  gap: var(--s2);
-}
-
-.filter-label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.filter-select {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text);
-  background: var(--card);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 7px 32px 7px 12px;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235E7380' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  cursor: pointer;
-  transition: border-color var(--ease), box-shadow var(--ease);
-}
-
-.filter-select:hover,
-.filter-select:focus {
-  border-color: var(--sage);
-  outline: none;
-  box-shadow: 0 0 0 3px var(--sage-pale);
 }
 
 /* Responsive project grid */
@@ -1140,12 +1147,14 @@ a {
   background: var(--sage);
 }
 
-.modal-link {
-  align-self: flex-start;
-  margin-top: var(--s4);
+.modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: var(--s5);
 }
 
-.modal-link[hidden] {
+.modal-links[hidden] {
   display: none;
 }
 
@@ -1155,12 +1164,44 @@ a {
 ================================================================ */
 
 .site-footer {
-  text-align: center;
-  padding: var(--s5) var(--page-gutter);
+  padding: var(--s8) var(--page-gutter) var(--s7);
   border-top: 1px solid var(--border-blue);
+  background: rgba(195, 224, 234, 0.28);
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.footer-heading {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--text);
+}
+
+.footer-note {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s2);
+  margin-top: var(--s3);
+}
+
+.footer-copy {
+  margin-top: var(--s5);
   font-size: 0.8rem;
   color: var(--muted-light);
-  background: rgba(195, 224, 234, 0.20);
 }
 
 
@@ -1176,14 +1217,17 @@ a {
   }
 
   .profile-card {
-    position: static;
-    max-width: 400px;
-    margin: 0 auto;
     width: 100%;
   }
 
-  .stats-inner {
-    grid-template-columns: repeat(3, 1fr);
+  .credentials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s6);
+  }
+
+  .skills-domains {
+    grid-template-columns: 1fr;
+    gap: var(--s5);
   }
 
   .credentials-grid {
@@ -1199,14 +1243,6 @@ a {
     padding: var(--s5) var(--page-gutter) var(--s5);
   }
 
-  .featured-pair {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .credentials-grid {
     grid-template-columns: 1fr;
   }
@@ -1217,6 +1253,32 @@ a {
 
   .section-title {
     font-size: 1.5rem;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--s5);
+    gap: var(--s4);
+  }
+
+  .profile-actions {
+    justify-content: center;
+  }
+
+  .exp-list li {
+    flex-direction: column;
+    gap: var(--s2);
+  }
+
+  .exp-date {
+    order: -1;
+    min-width: 0;
+  }
+
+  .profile-name {
+    font-size: 1.9rem;
   }
 
   .projects-header {
@@ -1239,10 +1301,6 @@ a {
 
 /* --- Small mobile: ≤ 400px --- */
 @media (max-width: 400px) {
-  .stats-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .profile-actions {
     gap: var(--s1);
   }
