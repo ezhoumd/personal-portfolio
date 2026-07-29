@@ -232,7 +232,7 @@ const PROJECTS = [
   }
   --- end bambu --- */
   {
-    id: 'nostapharma',
+    id: 'nostopharma',
     title: 'Automated Pipetting Platform',
     meta: 'Jan 2026–Present · Nostopharma',
     cats: ['mechatronics', 'product', 'research'],
