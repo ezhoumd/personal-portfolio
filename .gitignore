@@ -16,3 +16,6 @@ ehthumbs.db
 
 # Logs
 *.log
+
+# Large photo originals — only the web-sized derivatives are tracked
+images/TQZ_*.png

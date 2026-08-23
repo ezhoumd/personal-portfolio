@@ -406,20 +406,24 @@ a {
 }
 
 /* Circular profile photo placeholder */
+/* Portrait panel rather than an avatar circle — stretches to the card's
+   full height so it fills the side of the intro rectangle. */
 .profile-photo {
-  width: 132px;
-  height: 132px;
-  border-radius: 50%;
+  width: 244px;
+  align-self: stretch;
+  min-height: 300px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--border);
-  border: 3px solid var(--card-soft);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
 }
 
-.profile-photo svg {
+.profile-photo img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .profile-name {
@@ -444,11 +448,12 @@ a {
   max-width: 62ch;
 }
 
+/* The portrait panel narrows this column, so four buttons no longer fit on
+   one row. A 2x2 grid reads as deliberate where a 3+1 wrap does not. */
 .profile-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--s2);
-  justify-content: flex-start;
   margin-top: var(--s4);
 }
 
@@ -1594,6 +1599,14 @@ a.featured-card {
     text-align: center;
     padding: var(--s5);
     gap: var(--s4);
+  }
+
+  /* Stacked layout: the portrait becomes a banner across the top */
+  .profile-photo {
+    width: 100%;
+    align-self: auto;
+    min-height: 0;
+    height: 280px;
   }
 
   .profile-actions {
