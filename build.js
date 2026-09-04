@@ -16,7 +16,7 @@ const path = require('path');
 const PROJECTS = require('./projects.js');
 
 const SITE = 'Ethan Zhou';
-const CSS_VERSION = 27;
+const CSS_VERSION = 30;
 
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -121,7 +121,11 @@ function page(p) {
 
     <article class="project-article">${media}
 
-      <div class="project-body">
+      <div class="project-body">${p.wip ? `
+        <div class="wip-notice" role="status">
+          <span class="wip-badge">In Progress</span>
+          <span>This write-up is still being built out &mdash; more detail, photos, and files coming soon.</span>
+        </div>` : ''}
         <div class="project-layout${hasSide ? '' : ' project-layout--single'}">
 
           <div class="project-main">

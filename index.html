@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <!-- Bump ?v= when you change style.css so browsers don't serve a cached copy -->
-  <link rel="stylesheet" href="style.css?v=29" />
+  <link rel="stylesheet" href="style.css?v=30" />
 </head>
 <body>
 
@@ -117,6 +117,7 @@
                 <div class="fcard-tags">
                   <span class="tag tag--mechatronics">Mechatronics</span>
                   <span class="tag tag--controls">Controls</span>
+                  <span class="wip-badge">In Progress</span>
                 </div>
                 <h3 class="fcard-title">Dugtrio <span class="fcard-year">&middot; 2025&ndash;26</span></h3>
                 <p class="fcard-desc">The world's only robot with three shooters on a turret. <strong>Placed 2nd in the world out of 8,000+ teams</strong> and 1st in the Chesapeake region.</p>
@@ -132,6 +133,7 @@
                 <div class="fcard-tags">
                   <span class="tag tag--mechatronics">Mechatronics</span>
                   <span class="tag tag--controls">Controls</span>
+                  <span class="wip-badge">In Progress</span>
                 </div>
                 <h3 class="fcard-title">Blastoise <span class="fcard-year">&middot; 2024&ndash;25</span></h3>
                 <p class="fcard-desc">All-in-one telescoping arm that intakes and scores without a transfer. <strong>Peaked 7th Offensive Power Rating worldwide</strong>.</p>
@@ -431,7 +433,7 @@
       </div>
       <div class="pcard-body">
         <div class="pcard-tags">
-          ${p.tags.map(([label, cls]) => `<span class="tag tag--${cls}">${label}</span>`).join('')}
+          ${p.tags.map(([label, cls]) => `<span class="tag tag--${cls}">${label}</span>`).join('')}${p.wip ? '<span class="wip-badge">In Progress</span>' : ''}
         </div>
         <h3 class="pcard-title">${p.title}${p.year ? ` <span class="pcard-year">· ${p.year}</span>` : ''}</h3>
         <p class="pcard-desc">${p.blurb || p.summary}</p>
