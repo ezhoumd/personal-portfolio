@@ -16,7 +16,7 @@ const path = require('path');
 const PROJECTS = require('./projects.js');
 
 const SITE = 'Ethan Zhou';
-const CSS_VERSION = 30;
+const CSS_VERSION = 32;
 
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -110,8 +110,8 @@ function page(p) {
   <header class="site-header">
     <a class="header-name" href="../">${SITE}</a>
     <nav class="header-nav" aria-label="Page sections">
-      <a href="../#background">Background</a>
       <a href="../#projects">Projects</a>
+      <a href="../#background">Background</a>
       <a href="../#contact">Contact</a>
     </nav>
   </header>

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <!-- Bump ?v= when you change style.css so browsers don't serve a cached copy -->
-  <link rel="stylesheet" href="style.css?v=31" />
+  <link rel="stylesheet" href="style.css?v=32" />
 </head>
 <body>
 
@@ -20,8 +20,8 @@
   <header class="site-header">
     <span class="header-name">Ethan Zhou</span>
     <nav class="header-nav" aria-label="Page sections">
-      <a href="#background">Background</a>
       <a href="#projects">Projects</a>
+      <a href="#background">Background</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -163,113 +163,9 @@
     <!-- ============================================================
          CREDENTIALS — education / experience / awards / publications / skills
     ============================================================ -->
-    <section class="credentials" id="background" aria-labelledby="background-heading">
-      <h2 class="visually-hidden" id="background-heading">Background</h2>
+    <section class="credentials skills-section" id="skills" aria-labelledby="skills-heading">
+      <h2 class="visually-hidden" id="skills-heading">Skills</h2>
 
-      <div class="credentials-grid">
-
-        <!-- Awards -->
-        <div class="cred-block">
-          <h3 class="cred-heading">Awards</h3>
-          <ul class="award-list">
-
-            <li>
-              <span class="cred-year award-count">1x</span>
-              <div class="award-main">
-                <h4 class="award-name">FTC Worlds Inspire Award</h4>
-                <p class="award-desc">Top award, given to 6 of 8,000+ teams globally for effective engineering and community impact</p>
-              </div>
-            </li>
-
-            <li>
-              <span class="cred-year award-count">3x</span>
-              <div class="award-main">
-                <h4 class="award-name">FTC Worlds Innovate Award</h4>
-                <p class="award-desc">Top 0.15% of teams worldwide for innovative engineering design</p>
-              </div>
-            </li>
-
-            <li>
-              <span class="cred-year award-count">3x</span>
-              <div class="award-main">
-                <h4 class="award-name">FTC Chesapeake Regional Champion</h4>
-                <p class="award-desc">Top 1 of 250+ FTC teams across a quad-state region for robot performance.</p>
-              </div>
-            </li>
-
-            <li>
-              <span class="cred-year award-count">1x</span>
-              <div class="award-main">
-                <h4 class="award-name">FTC Chesapeake Regional Inspire Award</h4>
-                <p class="award-desc">Top award for effective engineering and community impact.</p>
-              </div>
-            </li>
-
-            <li>
-              <span class="cred-year award-count">1x</span>
-              <div class="award-main">
-                <h4 class="award-name">Multinational Tech Invitational</h4>
-                <p class="award-desc">Placed 13th of 40 top-performing FTC teams worldwide.</p>
-              </div>
-            </li>
-
-            <li>
-              <span class="cred-year award-count">1x</span>
-              <div class="award-main">
-                <h4 class="award-name">Eagle Scout Rank with Bronze Palm</h4>
-                <p class="award-desc">Promoted STEM in Scouting and demoed an FTC robot to US congressmen at Capitol Hill.</p>
-              </div>
-            </li>
-
-            <li>
-              <span class="cred-year award-count">2x</span>
-              <div class="award-main">
-                <h4 class="award-name">President's Gold Volunteer Service Award</h4>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-        <!-- Publications
-             ↓↓↓ To link a publication, paste your Google Drive (or DOI) URL
-             inside the quotes of that item's data-link="" attribute. The title
-             becomes the link. Leave it empty and it renders as plain text. ↓↓↓ -->
-        <div class="cred-block">
-          <h3 class="cred-heading">Publications &amp; Presentations</h3>
-          <ul class="pub-list">
-
-            <li data-link="">
-              <div class="pub-main">
-                <h4 class="pub-title">Progress in Henipavirus Neutralizing Antibody for Therapeutic Development</h4>
-                <p class="pub-authors">Hong, J., Zhao, Y., <strong>Zhou, E. H.</strong>, et al.</p>
-                <p class="pub-venue">SciLight Press</p>
-              </div>
-              <span class="cred-year pub-date">2026</span>
-            </li>
-
-            <li data-link="https://www.sciencedirect.com/science/article/pii/S1742706126007075">
-              <div class="pub-main">
-                <h4 class="pub-title">Polymeric Nanoparticle Gene Delivery to Reprogram the Tumor Immune Microenvironment in Ovarian Cancer for an Anti-Tumor Response</h4>
-                <p class="pub-authors">Yang, J., et al.</p>
-                <p class="pub-venue">Acta Biomaterialia <span class="pub-status">&middot; Co-author</span></p>
-              </div>
-              <span class="cred-year pub-date">2026</span>
-            </li>
-
-            <li data-link="">
-              <div class="pub-main">
-                <h4 class="pub-title">Effects of Storage Time and Temperature on Nanoparticle Performance and Properties Post-Lyophilization</h4>
-                <p class="pub-authors"><strong>Zhou, E.</strong>, et al.</p>
-                <p class="pub-venue">BMES 2025 Annual Conference <span class="pub-status">&middot; Poster presentation</span></p>
-              </div>
-              <span class="cred-year pub-date">2025</span>
-            </li>
-
-          </ul>
-        </div>
-
-      </div><!-- /credentials-grid -->
 
       <!-- Skills — full-width band so each domain gets room for subsections -->
       <div class="skills-block">
@@ -395,6 +291,118 @@
       <!-- Empty state (shown when filter has no results) -->
       <p class="projects-empty" id="projects-empty" hidden>No projects in this category yet.</p>
 
+    </section>
+
+    <!-- ============================================================
+         BACKGROUND — awards and publications, after the projects
+    ============================================================ -->
+    <section class="credentials background-section" id="background" aria-labelledby="background-heading">
+      <h2 class="visually-hidden" id="background-heading">Background</h2>
+
+      <div class="credentials-grid">
+
+        <!-- Awards -->
+        <div class="cred-block">
+          <h3 class="cred-heading">Awards</h3>
+          <ul class="award-list">
+
+            <li>
+              <span class="cred-year award-count">1x</span>
+              <div class="award-main">
+                <h4 class="award-name">FTC Worlds Inspire Award</h4>
+                <p class="award-desc">Top award, given to 6 of 8,000+ teams globally for effective engineering and community impact</p>
+              </div>
+            </li>
+
+            <li>
+              <span class="cred-year award-count">3x</span>
+              <div class="award-main">
+                <h4 class="award-name">FTC Worlds Innovate Award</h4>
+                <p class="award-desc">Top 0.15% of teams worldwide for innovative engineering design</p>
+              </div>
+            </li>
+
+            <li>
+              <span class="cred-year award-count">3x</span>
+              <div class="award-main">
+                <h4 class="award-name">FTC Chesapeake Regional Champion</h4>
+                <p class="award-desc">Top 1 of 250+ FTC teams across a quad-state region for robot performance.</p>
+              </div>
+            </li>
+
+            <li>
+              <span class="cred-year award-count">1x</span>
+              <div class="award-main">
+                <h4 class="award-name">FTC Chesapeake Regional Inspire Award</h4>
+                <p class="award-desc">Top award for effective engineering and community impact.</p>
+              </div>
+            </li>
+
+            <li>
+              <span class="cred-year award-count">1x</span>
+              <div class="award-main">
+                <h4 class="award-name">Multinational Tech Invitational</h4>
+                <p class="award-desc">Placed 13th of 40 top-performing FTC teams worldwide.</p>
+              </div>
+            </li>
+
+            <li>
+              <span class="cred-year award-count">1x</span>
+              <div class="award-main">
+                <h4 class="award-name">Eagle Scout Rank with Bronze Palm</h4>
+                <p class="award-desc">Promoted STEM in Scouting and demoed an FTC robot to US congressmen at Capitol Hill.</p>
+              </div>
+            </li>
+
+            <li>
+              <span class="cred-year award-count">2x</span>
+              <div class="award-main">
+                <h4 class="award-name">President's Gold Volunteer Service Award</h4>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- Publications
+             ↓↓↓ To link a publication, paste your Google Drive (or DOI) URL
+             inside the quotes of that item's data-link="" attribute. The title
+             becomes the link. Leave it empty and it renders as plain text. ↓↓↓ -->
+        <div class="cred-block">
+          <h3 class="cred-heading">Publications &amp; Presentations</h3>
+          <ul class="pub-list">
+
+            <li data-link="">
+              <div class="pub-main">
+                <h4 class="pub-title">Progress in Henipavirus Neutralizing Antibody for Therapeutic Development</h4>
+                <p class="pub-authors">Hong, J., Zhao, Y., <strong>Zhou, E. H.</strong>, et al.</p>
+                <p class="pub-venue">SciLight Press</p>
+              </div>
+              <span class="cred-year pub-date">2026</span>
+            </li>
+
+            <li data-link="https://www.sciencedirect.com/science/article/pii/S1742706126007075">
+              <div class="pub-main">
+                <h4 class="pub-title">Polymeric Nanoparticle Gene Delivery to Reprogram the Tumor Immune Microenvironment in Ovarian Cancer for an Anti-Tumor Response</h4>
+                <p class="pub-authors">Yang, J., et al.</p>
+                <p class="pub-venue">Acta Biomaterialia <span class="pub-status">&middot; Co-author</span></p>
+              </div>
+              <span class="cred-year pub-date">2026</span>
+            </li>
+
+            <li data-link="">
+              <div class="pub-main">
+                <h4 class="pub-title">Effects of Storage Time and Temperature on Nanoparticle Performance and Properties Post-Lyophilization</h4>
+                <p class="pub-authors"><strong>Zhou, E.</strong>, et al.</p>
+                <p class="pub-venue">BMES 2025 Annual Conference <span class="pub-status">&middot; Poster presentation</span></p>
+              </div>
+              <span class="cred-year pub-date">2025</span>
+            </li>
+
+          </ul>
+        </div>
+
+      </div><!-- /credentials-grid -->
     </section>
 
   </main>

@@ -1836,3 +1836,15 @@ a.featured-card {
 @media (prefers-reduced-motion: reduce) {
   .jump-pill, .see-all-arrow { animation: none; }
 }
+
+
+/* Skills now opens its own section above the projects, so the top margin
+   it used when it sat beneath the awards grid is no longer needed. */
+.skills-section .skills-block {
+  margin-top: 0;
+}
+
+/* Awards + publications sit after the projects now */
+.background-section {
+  padding-top: var(--s7);
+}
