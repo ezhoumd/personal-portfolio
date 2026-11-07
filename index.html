@@ -68,6 +68,14 @@
 
             <li>
               <div class="exp-main">
+                <h4 class="exp-role"><strong>Penn Electric Racing</strong> &mdash; Mechanical, Driverless Subsystem</h4>
+                <p class="exp-desc">Driverless subsystem on the mechanical subteam of Penn's Formula SAE electric race car</p>
+              </div>
+              <span class="cred-year exp-date">Sep 2026&ndash;Present</span>
+            </li>
+
+            <li>
+              <div class="exp-main">
                 <h4 class="exp-role"><strong>Bambu Lab</strong> &mdash; Mechanical Design Intern</h4>
                 <p class="exp-desc">Toolheads and toolchangers for 3D printers</p>
               </div>
@@ -144,7 +152,7 @@
           </div><!-- /featured-grid -->
 
           <a class="see-all" href="#projects">
-            <span>See all <span data-project-count>12</span> projects</span>
+            <span>See all projects</span>
             <span class="see-all-arrow" aria-hidden="true">&darr;</span>
           </a>
         </section>
@@ -412,7 +420,7 @@
 
   <!-- Floating "jump to projects" pill — the ring fills as you scroll
        toward the projects section, and the pill fades out on arrival. -->
-  <a class="jump-pill" id="jump-pill" href="#projects" aria-label="Jump to projects">
+  <a class="jump-pill" id="jump-pill" href="#projects" aria-label="Check out my projects">
     <span class="jump-ring" aria-hidden="true">
       <svg viewBox="0 0 36 36">
         <circle class="jump-ring-track" cx="18" cy="18" r="15.5" />
@@ -420,7 +428,7 @@
       </svg>
       <span class="jump-arrow">&darr;</span>
     </span>
-    <span class="jump-label"><span data-project-count>12</span> projects</span>
+    <span class="jump-label">Check out my projects!</span>
   </a>
 
   <script src="projects.js"></script>
@@ -486,10 +494,6 @@
   applyFilter('all');
 
   // --- Scroll widgets pointing down to the projects section ---
-  document.querySelectorAll('[data-project-count]').forEach(el => {
-    el.textContent = PROJECTS.length;
-  });
-
   const jumpPill = document.getElementById('jump-pill');
   const ringFill = document.getElementById('jump-ring-fill');
   const projectsEl = document.getElementById('projects');
